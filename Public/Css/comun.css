@@ -1,0 +1,47 @@
+.activo {
+    color:red;
+}
+
+footer{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    float:left;
+  }
+  
+  #menu_foot{
+    margin-left: 120px;
+  }
+  
+  #copy{
+    color: white;
+    margin-right: 22%;
+    margin-top: 20px;
+  }
+  #menu_foot {
+    list-style-type: none;
+    margin-left: 35%;
+    overflow: hidden;
+  }
+    
+  #menu_foot li {
+    margin-top: 20px;
+    float: left;
+  }
+    
+  #menu_foot li img {
+    text-align: center;
+    text-decoration: none;
+    margin-left: 50px;
+  }
+    
+  #menu_foot li a:hover {
+    background-color: #111111;
+  }
+  
+  #copy{
+   float: right;
+   margin-top: -20px;
+   margin-right: 20px;
+   color: white;
+  }
