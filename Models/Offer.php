@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__.'/DBControllers/DBArticles.php');
+include_once(__DIR__.'/DBModel/DBArticles.php');
 class Offer{
 
     function getOffer(){

@@ -1,7 +1,7 @@
 <?php 
-include_once("../Controllers/PrintHtml.php");
-include_once("../Controllers/Menu.php");
-include_once("../Controllers/Offer.php");
+include_once("../Models/PrintHtml.php");
+include_once("../Models/Menu.php");
+include_once("../Models/Offer.php");
 
 
 $menuPrint = new Menu();
