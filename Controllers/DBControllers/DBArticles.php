@@ -4,6 +4,6 @@ class DBArticles extends DBConection{
     public function getArticle($id){
         $this->conn;
         //tu codigo sql de sacar articulos
-        print_r($this->conn);
+      //  print_r($this->conn);
     }
 }
