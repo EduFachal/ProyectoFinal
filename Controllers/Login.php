@@ -9,15 +9,17 @@ $passValue="";
 
 
 if (isset($_POST['enviar'])) {  
-	$valid = new Validate();
-	$valid = $valid->comprobar_usuario($_POST['usuario'], $_POST['clave']);
-	$_SESSION['validar']=$valid;
-	if($_POST['usuario']=="admin"){
-		header("Location: ../Controllers/Admin.php");
-	}
-	if($valid==true){	
+	$rol = new Validate();
+	//print_r($rol);
+	$rol = $rol->comprobar_usuario($_POST['usuario'], $_POST['clave']);
+	$_SESSION['rol']=$rol;
+	//echo $rol;
+	if($rol==0){	// Admin
+		//header("Location: ../Controllers/Admin.php");
+	}else if($rol==1){	//Users
 		header("Location: ../Controllers/Index.php");	
-	}else{
+	}else if($rol==null){
+		echo "No se puede acceder";
 		$nameValue=$_POST['usuario'];
 		$passValue=$_POST['clave'];
 	}

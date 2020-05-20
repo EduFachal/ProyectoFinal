@@ -4,23 +4,31 @@ include_once("../Models/DBModel/DBConnection.php");
 class Validate extends DBConection{
 
 public function comprobar_usuario($name, $clave){
-    $val=null;
+    $rol=null;
     $con = $this ->conn;
     $stmt = $con ->prepare("SELECT pass FROM tienda2.users WHERE nombre=?");
-
     $stmt->bind_param("s",$name);
     $stmt -> execute();
     $stmt->bind_result($pass_con);  
-   
     if($stmt->fetch()) {
         $stmt->close();
-        
-        if(password_verify($clave,$pass_con)){
-            $val=true;
+        echo "1º";
+        if(password_verify($clave,$pass_con)){  // hay que añadir el rol para poder comprobarlo
+            echo "2º";
+            $stmt = $con->prepare("SELECT rol FROM users WHERE nombre=?");
+			$stmt->bind_param("s",$name);
+			$stmt -> execute();
+			$stmt->bind_result($rol_con);
+					
+			if($stmt->fetch()) {
+                $rol=$rol_con;
+                echo "3º";
+            }
+            $stmt->close();
         }
     }
     $this->destruct();
-    return $val;
+    return $rol;
 }
 
 }
