@@ -1,0 +1,32 @@
+body{
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.background_form_login{
+    background-image: url("../Img/Fondo_Logueo.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 900px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+}
+
+footer ul li{
+
+    list-style: none;
+}
+
+.col-sm-7 p{
+    margin: 5%;
+    margin-right: -20%;
+}
+
+#rrss{
+    margin-left: 20%;
+    display: inline-block;
+}
