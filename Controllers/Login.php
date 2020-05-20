@@ -1,23 +1,25 @@
 <?php 
 include_once("../Models/PrintHtml.php");
-$printer = new PrintHtml();
+include_once("../Models/Validate.php");
 
+session_start();
+$printer = new PrintHtml();
 $nameValue="";
 $passValue="";
 
+
 if (isset($_POST['enviar'])) {  
-	//$valid=comprobar_usuario($_POST['usuario'], $_POST['clave']);
-	$valid=false;
+	$valid = new Validate();
+	$valid = $valid->comprobar_usuario($_POST['usuario'], $_POST['clave']);
 	$_SESSION['validar']=$valid;
 	if($_POST['usuario']=="admin"){
-		header("Location: Hola");
+		header("Location: ../Controllers/Admin.php");
 	}
 	if($valid==true){	
-		header("Location: sesiones1_principalUsuario_tienda2.php");	
+		header("Location: ../Controllers/Index.php");	
 	}else{
 		$nameValue=$_POST['usuario'];
 		$passValue=$_POST['clave'];
-		echo "CACACA";
 	}
 }
 

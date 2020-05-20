@@ -9,7 +9,6 @@ class DBConection{
          return new mysqli("localhost","tienda2","tienda2","tienda2");
     }
     function destruct(){
-        $this->conn=null;
 		$this->conn->close();
     }
 }

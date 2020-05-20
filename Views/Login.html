@@ -25,6 +25,7 @@
 
   <div class="background_form_login">
     <a class="logo_link" href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png"></a>
+    <!--<a class="exit_link" href="../Controllers/Index.php"><img src="../Public/Img/redCrossX.png"></a>-->
     <div id="cover">
       <div id="cover-caption">
         <h2>Login</h2>
@@ -33,11 +34,11 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Usuario</label>
             <input type="text" class="form-control form-control-sm" id="exampleInputEmail1"
-              aria-describedby="emailHelp">
+              aria-describedby="emailHelp" name="usuario">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+            <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="clave">
           </div><br>
           <a id="link_alta" href="../Controllers/Alta.php">¿Desea darse de alta?</a><br><br><br>
           <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
