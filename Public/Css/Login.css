@@ -30,3 +30,40 @@ footer ul li{
     margin-left: 20%;
     display: inline-block;
 }
+hr{
+    height: 15px;
+    background-color: white;
+    margin-bottom: 20%;
+}
+
+#cover {
+    color: white;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+    margin-left:38%;
+    width: 21%;
+}
+  
+#cover-caption {
+    background-color: black;
+    padding: 12%;
+    width: 100%;
+}
+
+#cover-caption h2{
+    margin-bottom: 12%;
+}
+
+#link_alta{
+    color: white;
+}
+
+.logo_link img{
+    margin-bottom:-13% ;
+    width: 124px;
+    height: 188px;
+    margin-left: 45%;
+}

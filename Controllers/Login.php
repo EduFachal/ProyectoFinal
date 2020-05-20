@@ -1,22 +1,30 @@
 <?php 
 include_once("../Models/PrintHtml.php");
-include_once("../Models/Menu.php");
-include_once("../Models/Offer.php");
-
-
-$menuPrint = new Menu();
-$var = $menuPrint-> selection("home");
-
 $printer = new PrintHtml();
-$menuHtml = $printer->createView("Menu",$var);
 
-$offers = new Offer();
-$htmlOffers = $offers->printOffer();
+$nameValue="";
+$passValue="";
+
+if (isset($_POST['enviar'])) {  
+	//$valid=comprobar_usuario($_POST['usuario'], $_POST['clave']);
+	$valid=false;
+	$_SESSION['validar']=$valid;
+	if($_POST['usuario']=="admin"){
+		header("Location: Hola");
+	}
+	if($valid==true){	
+		header("Location: sesiones1_principalUsuario_tienda2.php");	
+	}else{
+		$nameValue=$_POST['usuario'];
+		$passValue=$_POST['clave'];
+		echo "CACACA";
+	}
+}
 
 
 $model=[
-    "menu" => $menuHtml,
-    "offer" => $htmlOffers
+	"name" => $nameValue,
+	"pass" => $passValue
 ];
 
 $printer->printView("Login", $model);
