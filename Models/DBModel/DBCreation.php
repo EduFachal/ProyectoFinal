@@ -1,8 +1,9 @@
 <?php
-/*
+
     //Establece la conexion a la base de datos
-    $con = new mysqli("localhost","root","","");
-    if($con==true){
+    /* $con = new mysqli("localhost","root","","");
+  
+   if($con==true){
 
         if(!$con->query("CREATE DATABASE IF NOT EXISTS proyecto") ||
         !$con->query("ALTER DATABASE proyecto CHARACTER SET utf8 COLLATE utf8_general_ci")){
@@ -143,6 +144,24 @@
     }
 
     //Crea el usuario y le da privilegios en caso de no existir
+    function crearAdmin($con){ 
+        if(!$con->query("CREATE USER IF NOT EXISTS 'proyectoAdmin'@'localhost' IDENTIFIED BY 'proyectoAdmin'")||
+        !$con->query("GRANT select,insert,update,delete ON proyecto.* TO 'proyectoAdmin'@'localhost' IDENTIFIED BY 'proyectoAdmin'")){
+           die("Fallo en la creacion del usuario".$con->error);
+           $con=null;
+		   $con->close();
+       }
+
+        $stmt=$con->prepare("INSERT INTO proyecto.usuarios (idUsuario,rol,usuario,pass) VALUES (?,?,?,?)");
+        $hash=password_hash("admin",PASSWORD_DEFAULT);
+        $nom="admin";
+        $rol=0;
+        $num=0;
+        $stmt->bind_param("iiss",$num,$rol,$nom,$hash);
+        $stmt->execute();   
+        $stmt->close();
+    }
+
     function crearUsuario($con){
         if(!$con->query("CREATE USER IF NOT EXISTS 'tienda2'@'localhost' IDENTIFIED BY 'tienda2'")||
         !$con->query("GRANT select,insert,update,delete ON tienda2.* TO 'tienda2'@'localhost' IDENTIFIED BY 'tienda2'")){

@@ -12,11 +12,11 @@ if (isset($_POST['enviar'])) {
 	$rol = new Validate();
 	$rol = $rol->comprobar_usuario($_POST['usuario'], $_POST['clave']);
 	$_SESSION['rol']=$rol;
-	if($rol==0){	// Admin
-		//header("Location: ../Controllers/Admin.php");
-	}else if($rol==1){	//Users
+	if($rol===0){	// Admin
+		header("Location: ../Controllers/Admin.php");
+	}else if($rol===1){	//Users
 		header("Location: ../Controllers/Index.php");	
-	}else if($rol==null){
+	}else if($rol==null || $rol==""){
 		echo "No se puede acceder";
 		$nameValue=$_POST['usuario'];
 		$passValue=$_POST['clave'];
