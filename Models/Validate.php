@@ -3,7 +3,14 @@ include_once("../Models/DBModel/DBConnection.php");
 
 class Validate extends DBConection{
 
-public function comprobar_usuario($name, $clave){
+    function __construct(){
+        session_start();
+        // Llamas al constructor del padre para establecer la conexion
+        parent::__construct();
+    }
+
+    public function comprobar_usuario($name, $clave){
+    
     $rol=null;
     $con = $this ->conn;
     $stmt = $con ->prepare("SELECT pass FROM usuarios WHERE usuario=?");
@@ -31,6 +38,34 @@ public function comprobar_usuario($name, $clave){
     return $rol;
 }
 
+// SEGURIDAD WEB
+    public function validateAdmin(){
+        //Comprobar si es admin
+        $this-> validateUser();
+        // Reubicarle en el index
+        if ($_SESSION['rol']!=0){
+            header("Location: ../Controllers/Index.php");
+        }
+    }
+
+    public function validateUser(){
+        //Si no hay rol le echa
+        if (!isset($_SESSION['rol'])){
+            $this->destroySession();    
+        }
+    }
+
+    public function destroySession(){
+        session_destroy(); 
+        header("Location: ../Controllers/Login.php");
+    }
+
+    public function checkConnect(){
+        if (isset($_SESSION['rol'])){
+            return true;  
+        }
+        return false;
+    }
 }
 
 

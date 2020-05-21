@@ -26,3 +26,7 @@
 #but{
     width: 400px;
 }
+
+#logoPerfil{
+    background-image: url("../Img/login.png");
+}
