@@ -1,7 +1,7 @@
 <?php 
 include_once("../Models/PrintHtml.php");
 include_once("../Models/Validate.php");
-
+//include_once("../Models/DBModel/DBCreation.php");
 session_start();
 $printer = new PrintHtml();
 $nameValue="";
@@ -10,10 +10,8 @@ $passValue="";
 
 if (isset($_POST['enviar'])) {  
 	$rol = new Validate();
-	//print_r($rol);
 	$rol = $rol->comprobar_usuario($_POST['usuario'], $_POST['clave']);
 	$_SESSION['rol']=$rol;
-	//echo $rol;
 	if($rol==0){	// Admin
 		//header("Location: ../Controllers/Admin.php");
 	}else if($rol==1){	//Users

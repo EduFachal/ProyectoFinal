@@ -3,10 +3,10 @@
 class DBConection{
     protected $conn;
     function __construct(){
-         $this->conn = new mysqli("localhost","tienda2","tienda2","tienda2");
+         $this->conn = new mysqli("localhost","proyecto","proyecto","proyecto");
     }
     function newConn(){
-         return new mysqli("localhost","tienda2","tienda2","tienda2");
+         return new mysqli("localhost","proyecto","proyecto","proyecto");
     }
     function destruct(){
 
