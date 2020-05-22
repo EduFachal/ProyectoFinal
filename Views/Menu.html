@@ -21,17 +21,16 @@
         <a class="navbar-brand" href="../Controllers/Index.php" id="logo"></a>
         <form class="form-inline">
             <input class="form-control mr-sm-4" type="search" id="but" placeholder="Buscar producto..." aria-label="Search">
-            <button type="button" class="btn btn-info">
+            <button type="button" class="btn btn-info" >
                 <span class="glyphicon glyphicon-search">  Buscar</span>
             </button>
         </form>
         <div class="d-flex justify-content-end" id="links">
-           <a href="../Controllers/Alta.php"><img src="../Public/Img/carrito.png"></a>
+           <a href="../Controllers/Alta.php"><img src="../Public/Img/carrito.png" alt="Cesta de la compra"></a>
            <!-- <a href="../Controllers/Login.php"><img src="../Public/Img/login.png"></a>-->
            <div class="btn-group">
-            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onmouseover="this.click()" onmouseleave="this.click()">
-              Perfil
-            </button>
+            <div class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="linkPerfil">
+            </div>
             <div class="dropdown-menu" id="logoPerfil">
               %%botonMenu%%
             </div>

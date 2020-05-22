@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="../Public/Css/Alta.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -27,37 +27,150 @@
   %%menu%%
 
   <div class="back-form">
+    <div id="cover">
+      <div id="cover-caption">
+        <h2>Registrate</h2>
+        <!--Formulario de registros-->
+        <form method="POST" action="../Controllers/Alta.php" class="register">
 
+            <!--Usuario-->
+            <div class="form-group col-md-4">
+              <label for="Usuario">Usuario </label>
+            </div>
+            
+            <div class="form-group col-md-8 separacionBotones">
+              <input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" name="usuario" required>
+            </div>
+
+            <!--Password-->
+            <div class="form-group col-md-4">
+              <label for="Contraseña">Contraseña</label>
+            </div>
+            
+            <div class="form-group col-md-8 separacionBotones">
+              <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="clave" required>
+            </div>
+            
+            <!--Nombre-->
+            <div class="form-group col-md-2 " >
+              <label for="Nombre">Nombre</label>
+            </div>
+            
+            <div class="form-group col-md-4 ">
+              <input type="text" class="form-control form-control-sm" name="nombre" required>
+            </div>
+
+            <!--Apellidos-->
+            <div class="form-group col-md-2">
+              <label for="Apellidos">Apellidos</label>
+            </div>
+            
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="apellidos" required>
+            </div>
+
+            <!--Email-->
+            <div class="form-group col-md-2 ">
+              <label for="EMail">Email</label>
+            </div>
+
+            <div class="form-group col-md-10 separacionBotones">
+              <input type="email" class="form-control form-control-sm" name="email" 
+              required>
+            </div>
+
+            <!--Direccion-->
+            <div class="form-group col-md-2">
+              <label for="Direccion">Direccion</label>
+            </div>
+            
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control form-control-sm" name="direccion" required>
+            </div>
+
+            <!--Codigo Postal-->
+            <div class="form-group col-md-2">
+              <label for="CodigoPostal">Codigo Postal</label>
+            </div>
+
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="codigoPostal" 
+              pattern="[0-9]{3,5}" required>
+            </div>
+
+            <!--Localidad-->
+            <div class="form-group col-md-2">
+              <label for="Localidad">Localidad</label>
+            </div>
+            
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="localidad" required>
+            </div>
+
+            <!--Provincia-->
+            <div class="form-group col-md-2">
+              <label for="Provincia">Provincia</label>
+            </div>
+
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="provincia" required>
+            </div>
+
+            <!--Telefono-->
+            <div class="form-group col-md-2">
+              <label for="Telefono">Telefono</label>
+            </div>
+            
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="telefono" 
+              pattern="[0-9]{9}" required>
+            </div>
+
+            <!--Fecha de Nacimiento-->
+            <div class="form-group col-md-2">
+              <label for="Nacimiento">Fecha de Nacimiento</label>
+            </div>
+
+            <div class="form-group col-md-4 separacionBotones">
+              <input type="text" class="form-control form-control-sm" name="nacimiento" 
+              pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+            </div>
+
+
+          <button type="submit" class="btn btn-primary register" name="registrar">Registrate</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <footer class="page-footer font-small blue pt-4">
     <div class="container-fluid text-center text-md-left">
-        <div class="col-sm-7">
-          <p>Dirección:<br><br>
-            Calle San Juan de la Cruz, s/n <br><br>
-            Pozuelo de Alarcón, Madrid <br><br>
-            Telefono <br><br>
-            (+34) 666 55 44 33 <br><br>
-            Correo electrónico <br><br>
-            ...@gmail.com
-          </p>
+      <div class="col-sm-7">
+        <p>Dirección:<br><br>
+          Calle San Juan de la Cruz, s/n <br><br>
+          Pozuelo de Alarcón, Madrid <br><br>
+          Telefono <br><br>
+          (+34) 666 55 44 33 <br><br>
+          Correo electrónico <br><br>
+          ...@gmail.com
+        </p>
 
-        </div>
+      </div>
 
-        <div class="col-sm-5">
-          <ul class="navbar navbar-expand-sm">
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Twitter.jpg" height="68" width="68"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Instagram.jpg" height="68" width="68"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Facebook.png" height="48" width="48"></a>
-            </li>
-          </ul>
+      <div class="col-sm-5">
+        <ul class="navbar navbar-expand-sm">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Twitter.jpg" height="68" width="68"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Instagram.jpg" height="68" width="68"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Facebook.png" height="48" width="48"></a>
+          </li>
+        </ul>
 
-        </div>
+      </div>
     </div>
     <div class="footer-copyright text-center py-3">
       <p>Terminos de venta&nbsp;&nbsp;&nbsp; |

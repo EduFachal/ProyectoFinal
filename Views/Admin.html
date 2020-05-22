@@ -10,8 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Alta</title>
-  <link rel="stylesheet" type="text/css" href="../Public/Css/comun.css">
-  <link rel="stylesheet" type="text/css" href="../Public/Css/Alta.css">
+  <link rel="stylesheet" type="text/css" href="../Public/Css/Admin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -23,6 +22,23 @@
 
 <body>
     <a class="logo_link" href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png"></a>
+
+    <div class="container">
+      <h2>Cuentas Usuarios</h2><br><br>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id Usuario</th>
+            <th>Usuario</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          %%valores%%
+        </tbody>
+      </table>
+    </div>
 </body>
 
 </html>

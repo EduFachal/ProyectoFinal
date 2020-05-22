@@ -1,5 +1,62 @@
+
+/* FONDO DEL FORMULARIO */
 .back-form{
     width: 100%;
     height: 100%;
     background-image: url("../Img/Fondo_deporte.jpg");
+    background-size: cover;
+    margin-top: -20px;
 }
+
+/* CSS FORMULARIO */
+#cover {
+    color: white;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-top: 8%;
+    margin-left:18%;
+    width: 61%;
+    opacity: 0.85;
+    padding-bottom: 10%;
+}
+  
+#cover-caption {
+    background-color: black;
+    padding-left: 12%;
+    padding-right: 12%;
+    height: 80%;
+    width: 100%;
+    border: solid white 1px;
+    border-radius: 10%;
+}
+
+#cover-caption h2{
+    position: flex;
+    margin-bottom: 45px;
+}
+
+#link_alta{
+    color: white;
+}
+#exampleInputPassword1{
+    margin-bottom: 15%;
+}
+
+div.separacionBotones{
+    padding-bottom: 3%;
+}
+form.register{
+    width: 100%;
+    font-size: 1.6rem;
+    margin-bottom: 10%;
+}
+
+button.register{
+    margin-top: 5%;
+    width: 150px;
+    font-size: 2rem;
+}
+
+

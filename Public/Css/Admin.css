@@ -1,0 +1,9 @@
+.deleteButton{
+    border: none;
+    background: url('../Img/x-icon.png') no-repeat top left;
+    padding: 2px 8px;
+}
+
+.logo_link{
+    margin: 3%;
+}

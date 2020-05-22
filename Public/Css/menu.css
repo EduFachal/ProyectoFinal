@@ -1,6 +1,5 @@
 #clothesMenu{
-    margin-left:45%;
-    
+    margin-left:45%;  
 }
 
 .nav-item{
@@ -11,22 +10,32 @@
     margin: 2.5%;
 }
 
+/* CSS PARA EL LINK A HOME */
 #logo{
     background-image: url("../Img/fav-ico_nofondo_2.png");
     width: 64px;
     height: 158px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    
 }
 
+/* CSS PARA EL LINK A CESTA */
 #links img{
     width: 94px;
     height: 98px;
     margin-right: 40px;
 }
 
-#but{
-    width: 400px;
+/* CSS PARA EL LINK A PERFIL */
+#linkPerfil{
+    width: 94px;
+    height: 98px;
+    margin-right: 40px;
+    background-image: url("../Img/login.png");
 }
 
-#logoPerfil{
-    background-image: url("../Img/login.png");
+/* CSS PARA EL BUSCADOR DE PRODUCTO */
+#but{
+    width: 400px;
 }

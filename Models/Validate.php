@@ -38,6 +38,7 @@ class Validate extends DBConection{
     return $rol;
 }
 
+
 // SEGURIDAD WEB
     public function validateAdmin(){
         //Comprobar si es admin

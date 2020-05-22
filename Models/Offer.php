@@ -4,7 +4,6 @@ class Offer{
 
     function getOffer(){
         $a = new DBArticles();
-       // echo "aaa";
         $a->getArticle(1);
         return [
             "0"=>[

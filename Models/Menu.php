@@ -24,7 +24,9 @@ class Menu {
     
     public function getMenu($logged){
         if($logged == 0 ){
-            return "<a class='dropdown-item' href='../Controllers/Login.php'>Iniciar Sesión</a>";
+            return "<a class='dropdown-item' href='../Controllers/Login.php'>Iniciar Sesión</a>"
+                    ."<div class='dropdown-divider'></div>"
+                    ."<a class='dropdown-item' href='../Controllers/Alta.php'>Registrarse</a>"; 
 
         }
         if($logged == 1){
