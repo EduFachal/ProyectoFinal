@@ -27,7 +27,6 @@ class Users extends DBConection{
                 ."<td><form method='POST' action='../Controllers/Admin.php'><input type='submit' value='".$myrow["idUsuario"]."' name='eliminar' class='deleteButton'></form></td></tr>";
         }
         $stmt->close();
-        $this->destruct();
         return $arr;
 
     }
@@ -43,7 +42,6 @@ class Users extends DBConection{
             $val=true;
         }
         $stmt->close();
-        $con->close();
         return $val;
     }
 
@@ -63,11 +61,12 @@ class Users extends DBConection{
         $stmt = $con->prepare("INSERT INTO usuarios VALUES (?,?,?,?)");
         $stmt->bind_param("isss",$idUser,$rol,$arrayDatos[0],$hash);
         if($stmt->execute()){
+
+            
             $val=true;
             echo "se metioo";
         }
         $stmt->close();
-        $con->close();
         return $val;
     }
 }

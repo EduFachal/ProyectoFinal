@@ -19,9 +19,7 @@ class Validate extends DBConection{
     $stmt->bind_result($pass_con);  
     if($stmt->fetch()) {
         $stmt->close();
-        echo "1º";
         if(password_verify($clave,$pass_con)){  // hay que añadir el rol para poder comprobarlo
-            echo "2º";
             $stmt = $con->prepare("SELECT rol FROM usuarios WHERE usuario=?");
 			$stmt->bind_param("s",$name);
 			$stmt -> execute();
@@ -29,7 +27,6 @@ class Validate extends DBConection{
 					
 			if($stmt->fetch()) {
                 $rol=$rol_con;
-                echo "3º";
             }
             $stmt->close();
         }

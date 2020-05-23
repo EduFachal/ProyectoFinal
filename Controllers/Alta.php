@@ -50,4 +50,5 @@ $model=[
 ];
 
 $printer->printView("Alta", $model);
+
 ?>

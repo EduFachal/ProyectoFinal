@@ -14,16 +14,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="../Public/Javascript/FunctionsApi.js"></script>
 <link rel="stylesheet" type="text/css" href="../Public/Css/menu.css">
 
 <nav>
     <div class="d-flex justify-content-between" id="nav-top">
         <a class="navbar-brand" href="../Controllers/Index.php" id="logo"></a>
         <form class="form-inline">
-            <input class="form-control mr-sm-4" type="search" id="but" placeholder="Buscar producto..." aria-label="Search">
-            <button type="button" class="btn btn-info" >
-                <span class="glyphicon glyphicon-search">  Buscar</span>
+            <input class="form-control mr-sm-4" type="search" id="findProduct" placeholder="Buscar producto..." aria-label="Search">
+            <button type="button" class="btn btn-info" id="buttonProduct" >
+                <span class="glyphicon glyphicon-search">Buscar</span>
             </button>
+            <div id="articulos">
+
+            </div>
         </form>
         <div class="d-flex justify-content-end" id="links">
            <a href="../Controllers/Alta.php"><img src="../Public/Img/carrito.png" alt="Cesta de la compra"></a>

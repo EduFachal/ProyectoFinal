@@ -5,12 +5,16 @@ class DBConection{
     function __construct(){
          $this->conn = new mysqli("localhost","proyecto","proyecto","proyecto");
     }
-    function newConn(){
+    public function newConn(){
          return new mysqli("localhost","proyecto","proyecto","proyecto");
     }
-    function destruct(){
-
-		$this->conn->close();
+    public function destruct(){
+		  $this->conn->close();
+    }
+    function __destruct(){
+        if($this->conn){
+            $this->conn->close();
+        }
     }
 }
 /*
