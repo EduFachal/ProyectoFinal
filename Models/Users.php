@@ -36,8 +36,9 @@ class Users extends DBConection{
     public function eliminarUsuario($id){
         $val=false;
         $con = $this ->conn;
-        $stmt=$con->prepare("DELETE FROM usuarios WHERE idUsuario=? ON DELETE CASCADE");
-        $stmt->bind_param("i",$id);
+        $intId= (int) $id;
+        $stmt=$con->prepare("DELETE FROM usuarios WHERE idUsuario=? ");//ON DELETE CASCADE
+        $stmt->bind_param("i",$intId);
         if($stmt->execute()){
             $val=true;
         }
@@ -46,21 +47,27 @@ class Users extends DBConection{
         return $val;
     }
 
+    // Funcion para añadir cliente metiendole un array con todos los datos necesarios
     public function aniadirCliente($arrayDatos){
         $val=false;
-        $con=conect();
+        $con=$this -> conn;
+        $rol="1";
+        $stmt = $con ->prepare("SELECT MAX(idUsuario) FROM usuarios");
+        $stmt -> execute();
+        $stmt->bind_result($idUser);
+        $stmt->fetch();
+        $stmt->close();
+        $idUser = $idUser + 1;
+        $idUser = (int) $idUser;
         $hash=password_hash($arrayDatos[1],PASSWORD_DEFAULT);
-        $stmt = $con->prepare("INSERT INTO usuarios VALUES (?,?,?)");
-        $stmt->bind_param("sss",1 , $arrayDatos[0],$hash);
+        $stmt = $con->prepare("INSERT INTO usuarios VALUES (?,?,?,?)");
+        $stmt->bind_param("isss",$idUser,$rol,$arrayDatos[0],$hash);
         if($stmt->execute()){
             $val=true;
+            echo "se metioo";
         }
         $stmt->close();
         $con->close();
         return $val;
     }
-    /*$hash=password_hash($pass[$i],PASSWORD_DEFAULT);
-            $connex->query("INSERT INTO usuarios VALUES ('($i+1)',1,'$usuarios[$i]','$hash')");
-            echo "//////////////////";
-            print_r($connex);*/
 }

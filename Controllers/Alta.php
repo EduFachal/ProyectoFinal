@@ -35,7 +35,6 @@ if(isset($_POST['registrar'])){
         $_POST['telefono'],
         $_POST['nacimiento']*/
     );
-    var_dump($arrayDatosCliente);
     if($register -> aniadirCliente($arrayDatosCliente)){
         echo "Exito";
     }
