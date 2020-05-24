@@ -31,8 +31,22 @@ class Validate extends DBConection{
             $stmt->close();
         }
     }
-    $this->destruct();
+    //$this->destruct();
     return $rol;
+}
+public function getUser($user){
+    $con = $this ->conn;
+    $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");
+    $stmt->bind_param("s",$user);
+    $stmt -> execute();
+    $result = $stmt->get_result();  
+    $arr="";
+    while($myrow = $result->fetch_assoc()) {
+      $arr=$myrow["idUsuario"];
+    }
+    $stmt->close();
+    //$this -> setId($arr);
+    return $arr;
 }
 
 

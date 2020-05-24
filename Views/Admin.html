@@ -11,12 +11,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Alta</title>
   <link rel="stylesheet" type="text/css" href="../Public/Css/Admin.css">
+  <link rel="stylesheet" type="text/css" href="../Public/Css/FormModUser.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../Public/Javascript/ModUserAdmin.js"></script>
 
 </head>
 
@@ -39,6 +41,121 @@
         </tbody>
       </table>
     </div>
+
+    <div id="cover">
+      <div id="cover-caption">
+          <h2>Modificar user</h2>
+            <div class="row">
+              <!--Usuario-->
+              <div class="form-group col-md-2">
+                  <label for="Usuario">Usuario </label>
+              </div>
+  
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" name="usuario">
+              </div>
+  
+              <!--Password-->
+              <div class="form-group col-md-2">
+                  <label for="Contraseña">Contraseña</label>
+              </div>
+  
+              <div class="form-group col-md-4">
+                  <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="clave">
+              </div>
+            </div>
+            <div class="row">
+              <!--Nombre-->
+              <div class="form-group col-md-2 ">
+                  <label for="Nombre">Nombre</label>
+              </div>
+  
+              <div class="form-group col-md-4 ">
+                  <input type="text" class="form-control form-control-sm" name="nombre">
+              </div>
+  
+              <!--Apellidos-->
+              <div class="form-group col-md-2">
+                  <label for="Apellidos">Apellidos</label>
+              </div>
+  
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="apellidos">
+              </div>
+              </div>
+              
+              <!--Email-->
+              <div class="row">
+              <div class="form-group col-md-2 separacionBotones">
+                  <label for="EMail">Email</label>
+              </div>
+  
+              <div class="form-group col-md-10 separacionBotones">
+                  <input type="email" class="form-control form-control-sm" name="email">
+              </div>
+              </div>
+              <!--Direccion-->
+              <div class="row">
+              <div class="form-group col-md-2">
+                  <label for="Direccion">Direccion</label>
+              </div>
+  
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control form-control-sm" name="direccion">
+              </div>
+  
+              <!--Codigo Postal-->
+              <div class="form-group col-md-2">
+                  <label for="CodigoPostal">Codigo Postal</label>
+              </div>
+              
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="codigoPostal" pattern="[0-9]{3,5}">
+              </div>
+            </div>
+              <!--Localidad-->
+              <div class="row">
+              <div class="form-group col-md-2">
+                  <label for="Localidad">Localidad</label>
+              </div>
+  
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="localidad">
+              </div>
+  
+              <!--Provincia-->
+              <div class="form-group col-md-2">
+                  <label for="Provincia">Provincia</label>
+              </div>
+  
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="provincia">
+              </div>
+              </div>
+              <!--Telefono-->
+              <div class="row">
+              <div class="form-group col-md-2">
+                  <label for="Telefono">Telefono</label>
+              </div>
+  
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="telefono" pattern="[0-9]{9}">
+              </div>
+  
+              <!--Fecha de Nacimiento-->
+              <div class="form-group col-md-2">
+                  <label for="Nacimiento">Fecha de Nacimiento</label>
+              </div>
+  
+              <div class="form-group col-md-4 separacionBotones">
+                  <input type="text" class="form-control form-control-sm" name="nacimiento"
+                      pattern="\d{1,2}/\d{1,2}/\d{4}">
+              </div>
+              </div>
+              <button type="button" class="btn btn-primary register" id="modificarButton">Modificar</button>
+      </div>
+  </div>
+
 </body>
 
 </html>

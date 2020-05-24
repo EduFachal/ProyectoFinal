@@ -1,7 +1,7 @@
 <?php
 include_once("../Models/DBModel/DBConnection.php");
 
-class Users extends DBConection{
+class Admin extends DBConection{
 
     function __construct(){
         parent::__construct();
@@ -23,7 +23,7 @@ class Users extends DBConection{
                 ."<td><input type='image' value='".$myrow["idUsuario"]."' name='".$myrow["idUsuari"]."' src='../Public/Img/x-icon.png' class='deleteButton'></td></tr>";*/
             $arr.="<tr><td>".$myrow["idUsuario"]."</td>"
                 ."<td>".$myrow["usuario"]."</td>"
-                ."<td><input type='checkbox' value='".$myrow["idUsuario"]."' name='mod'".$myrow["idUsuario"]."'></td>"
+                ."<td><input type='checkbox' value='".$myrow["idUsuario"]."' class='checkMod'></td>"
                 ."<td><form method='POST' action='../Controllers/Admin.php'><input type='submit' value='".$myrow["idUsuario"]."' name='eliminar' class='deleteButton'></form></td></tr>";
         }
         $stmt->close();
@@ -68,5 +68,20 @@ class Users extends DBConection{
         }
         $stmt->close();
         return $val;
+    }
+
+    public function getUser($user){
+        $con = $this ->conn;
+        $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");
+        $stmt->bind_param("s",$user);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $arr="";
+        while($myrow = $result->fetch_assoc()) {
+          $arr=$myrow["idUsuario"];
+        }
+        $stmt->close();
+        //$this -> setId($arr);
+        return $arr;
     }
 }

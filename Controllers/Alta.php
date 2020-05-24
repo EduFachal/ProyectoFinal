@@ -3,7 +3,7 @@ include_once("../Models/PrintHtml.php");
 include_once("../Models/Menu.php");
 include_once("../Models/Offer.php");
 include_once("../Models/Validate.php");
-include_once("../Models/Users.php");
+include_once("../Models/Admin.php");
 
 $validate = new Validate();
 $menuPrint = new Menu();
@@ -12,6 +12,7 @@ $var = $menuPrint-> selection("home");
 if($validate -> checkConnect()){
     $botones= $menuPrint -> getMenu(1);
     $var["botonMenu"] = $botones;
+    
 }else{
     $botones= $menuPrint -> getMenu(0);
     $var["botonMenu"] = $botones;
@@ -21,7 +22,7 @@ if($validate -> checkConnect()){
     llamar a un metodo suyo que es 'registrarUsuario' */
 
 if(isset($_POST['registrar'])){
-    $register=new Users();
+    $register=new Admin();
     $arrayDatosCliente= array(
         $_POST['usuario'],
         $_POST['clave']/*,
@@ -39,14 +40,15 @@ if(isset($_POST['registrar'])){
         echo "Exito";
     }
 }
-
-
 $printer = new PrintHtml();
+$formulario = $printer->createView("Form",$var);
+
 $menuHtml = $printer->createView("Menu",$var);
 
 
 $model=[
-    "menu" => $menuHtml
+    "menu" => $menuHtml,
+    "formulario" => $formulario
 ];
 
 $printer->printView("Alta", $model);

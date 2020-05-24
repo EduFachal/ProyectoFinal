@@ -10,13 +10,15 @@ $passValue="";
 
 if (isset($_POST['enviar'])) {  
 	$rol = new Validate();
-	$rol = $rol->comprobar_usuario($_POST['usuario'], $_POST['clave']);
-	$_SESSION['rol']=$rol;
-	if($rol===0){	// Admin
+	$valorRol = $rol->comprobar_usuario($_POST['usuario'], $_POST['clave']);
+	$idUser = $rol->getUser($_POST['usuario']);
+	$_SESSION['idUsuario']=$idUser;
+	$_SESSION['rol']=$valorRol;
+	if($valorRol===0){	// Admin
 		header("Location: ../Controllers/Admin.php");
-	}else if($rol===1){	//Users
+	}else if($valorRol===1){	//Users
 		header("Location: ../Controllers/Index.php");	
-	}else if($rol==null || $rol==""){
+	}else if($valorRol==null || $valorRol==""){
 		echo "No se puede acceder";
 		$nameValue=$_POST['usuario'];
 		$passValue=$_POST['clave'];

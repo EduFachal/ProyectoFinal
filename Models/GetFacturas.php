@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 include_once("../Models/DBModel/DBArticles.php");
 
+$validate = new Admin();
 $article = new DBArticles();
 
 // Funcion para rescatar la info del articulo en el buscador
