@@ -1,16 +1,14 @@
 <div id="cover">
     <div id="cover-caption">
         <h2>%%nombreFormularioCabecera%%</h2>
-        <form method="POST" action="../Controllers/Alta.php" class="register">
-
+        <form method="POST" class="register">
             <!--Usuario-->
             <div class="form-group col-md-4">
                 <label for="Usuario">Usuario </label>
             </div>
 
             <div class="form-group col-md-8 separacionBotones">
-                <input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" name="usuario"
-                    required>
+                <input type="text" class="form-control form-control-sm" aria-describedby="emailHelp" name="usuario">
             </div>
 
             <!--Password-->
@@ -19,8 +17,7 @@
             </div>
 
             <div class="form-group col-md-8 separacionBotones">
-                <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="clave"
-                    required>
+                <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="clave">
             </div>
             <!--Nombre-->
             <div class="form-group col-md-2 ">
@@ -28,7 +25,7 @@
             </div>
 
             <div class="form-group col-md-4 ">
-                <input type="text" class="form-control form-control-sm" name="nombre" required>
+                <input type="text" class="form-control form-control-sm" name="nombre">
             </div>
 
             <!--Apellidos-->
@@ -37,7 +34,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="apellidos" required>
+                <input type="text" class="form-control form-control-sm" name="apellidos">
             </div>
 
             <!--Email-->
@@ -46,7 +43,7 @@
             </div>
 
             <div class="form-group col-md-10 separacionBotones">
-                <input type="email" class="form-control form-control-sm" name="email" required>
+                <input type="email" class="form-control form-control-sm" name="email">
             </div>
 
             <!--Direccion-->
@@ -55,7 +52,7 @@
             </div>
 
             <div class="form-group col-md-4">
-                <input type="text" class="form-control form-control-sm" name="direccion" required>
+                <input type="text" class="form-control form-control-sm" name="direccion">
             </div>
 
             <!--Codigo Postal-->
@@ -64,8 +61,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="codigoPostal" pattern="[0-9]{3,5}"
-                    required>
+                <input type="text" class="form-control form-control-sm" name="codigoPostal" pattern="[0-9]{3,5}">
             </div>
 
             <!--Localidad-->
@@ -74,7 +70,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="localidad" required>
+                <input type="text" class="form-control form-control-sm" name="localidad">
             </div>
 
             <!--Provincia-->
@@ -83,7 +79,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="provincia" required>
+                <input type="text" class="form-control form-control-sm" name="provincia">
             </div>
 
             <!--Telefono-->
@@ -92,7 +88,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="telefono" required>
+                <input type="text" class="form-control form-control-sm" name="telefono">
             </div>
 
             <!--Fecha de Nacimiento-->
@@ -102,10 +98,10 @@
 
             <div class="form-group col-md-4 separacionBotones">
                 <input type="text" class="form-control form-control-sm" name="nacimiento"
-                    pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+                    pattern="\d{1,2}/\d{1,2}/\d{4}">
             </div>
 
-            <button type="submit" class="btn btn-primary register" name="registrar">%%nombreFormularioBoton%%</button>
+            <button type="button" class="btn btn-primary register" id="modificar">%%nombreFormularioBoton%%</button>
         </form>
     </div>
 </div>

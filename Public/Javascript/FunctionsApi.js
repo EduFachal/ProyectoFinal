@@ -1,7 +1,13 @@
-window.onload = function(){
-
+// Funcion para pisar el onload previo si hubiera
+var charge = window.onload;
+window.onload = function () {
+    if (charge) {
+        charge();
+    }
     document.getElementById("buttonProduct").addEventListener("click",this.getArticleJSON);
-}
+};
+
+
 
 function getArticleJSON() {
     var article =  document.getElementById("findProduct").value;

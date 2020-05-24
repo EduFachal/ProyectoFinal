@@ -21,7 +21,6 @@ if (isset($_POST['enviar'])) {
 	}else if($valorRol===1){	//Users
 		header("Location: ../Controllers/Index.php");	
 	}else if($valorRol==null || $valorRol==""){
-		echo "No se puede acceder";
 		//Variables para el repintado en el login
 		$nameValue=$_POST['usuario'];
 		$passValue=$_POST['clave'];

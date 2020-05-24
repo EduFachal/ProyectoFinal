@@ -1,30 +1,66 @@
-window.onload = function main(){
-    document.getElementById("tablaPedidos").addEventListener("click",getFacturas);
-    document.getElementById("formularioModificar").addEventListener("click",this.getArticleJSON);
+window.onload = function () {
+    document.getElementById("tablaPedidos").addEventListener("click", getFacturas);
+    document.getElementById("formularioModificar").addEventListener("click", getFormCuenta);
+    document.getElementById("modificar").addEventListener("click", modificarCuentaUsuario);
+    document.getElementById("resultadoPedidos").style.display = "none";
+    document.getElementById("modificarCuenta").style.display = "none";
 }
 
-function getFacturas(){
-    var op = document.getElementById("resultadoPedidos");
-    if(op.style.display === 'none'){
-        op.style.display="block";
-    }else{
-        op.style.display="none";
+//Funcion para pintar el formulario de pedidos del usuario
+function getFacturas() {
+    var espacio = document.getElementById("resalto");
+    var botonPedidos = document.getElementById("resultadoPedidos");
+    var botonCuenta = document.getElementById("modificarCuenta");
+    if (botonPedidos.style.display === 'none') {
+        botonPedidos.style.display = "block";
+        botonCuenta.style.display = "none";
+        espacio.style.display = "none";
+    } else {
+        botonPedidos.style.display = "none";
+        if (botonCuenta.style.display === "none" && botonPedidos.style.display === "none") {
+            espacio.style.display = "block";
+        }
     }
 }
 
-function visualizar(){
+//Funcion para pintar el formulario de modificacion de la cuenta
+function getFormCuenta() {
+    var espacio = document.getElementById("resalto");
+    var botonCuenta = document.getElementById("modificarCuenta");
+    var botonPedidos = document.getElementById("resultadoPedidos");
+    if (botonCuenta.style.display === 'none') {
+        botonCuenta.style.display = "block";
+        botonPedidos.style.display = "none";
+        espacio.style.display = "none";
+    } else {
+        botonCuenta.style.display = "none";
+        if (botonCuenta.style.display === "none" && botonPedidos.style.display === "none") {
+            espacio.style.display = "block";
+        }
+    }
+}
+
+function modificarCuentaUsuario() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        var datos = JSON.parse(this.response);      
-        document.getElementById("resultados").innerHTML+="Id  " + "Nombre  " + "Edad  " + "Salario  <br><br>";
-        for(var i=0;i<datos.length;i++){
-            document.getElementById("resultados").innerHTML+=datos[i].id + "  " +
-            datos[i].nombre + "  " + datos[i].edad + "  " + datos[i].salario + "<br>";
+    var arrayInput = document.getElementsByTagName("input");
+    var data = {}
+    var url = "../Api/UpdateUser.php";
+    for (let i = 0; i < arrayInput.length; i++) {
+        if (arrayInput[i].value != "") {
+            data[arrayInput[i].name] = arrayInput[i].value;
         }
-        document.getElementById("resultados").innerHTML="Se actualizo correctamente";
+    }
+    console.log(data);
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
         }
-    };
-    xmlhttp.open("GET", "Consulta.php", true);
-    xmlhttp.send();
+    });
+
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
 }

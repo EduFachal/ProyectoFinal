@@ -75,4 +75,19 @@ class Admin extends DBConection{
         $stmt->close();
         return $arr;
     }
+
+    public function updateUser($cadena){
+        $con = $this ->conn;
+        $stmt = $con->prepare("UPDATE productos SET alimento=? WHERE alimento='caca'");
+        $stmt->bind_param("s",$datos["alimento"]);
+        $stmt -> execute(); 
+        $stmt->close();
+        $result = $stmt->get_result();  
+        $arr="";
+        while($myrow = $result->fetch_assoc()) {
+          $arr=$myrow["idUsuario"];
+        }
+        $stmt->close();
+        return $arr;
+    }
 }

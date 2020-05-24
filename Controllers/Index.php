@@ -9,7 +9,6 @@ $validate = new Validate();
 $menuPrint = new Menu();
 
 // Funcion para comprobar si hay usuario logeado y pintar los botones en el menu de las acciones a realizar -> Models/Validate.php
-$var = $menuPrint-> selection("home");
 if($validate -> checkConnect()){
     $botones= $menuPrint -> getMenu(1);
     $var["botonMenu"] = $botones;

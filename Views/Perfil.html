@@ -12,6 +12,7 @@
   <title>Perfil</title>
   <link rel="stylesheet" type="text/css" href="../Public/Css/Footer.css">
   <link rel="stylesheet" type="text/css" href="../Public/Css/Perfil.css">
+  <link rel="stylesheet" type="text/css" href="../Public/Css/FormModUser.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -22,15 +23,16 @@
 
 </head>
 
-<body>
+<body id="bodyPerfil">
     %%menu%%
     <div class="back-form">
-        
         <div class="buttonPerfil">
-            <button type="button" class="btn btn-lg btn-primary active" id="tablaPedidos" onclick="getFacturas()">Pedidos</button>
+            <button type="button" class="btn btn-lg btn-primary active" id="tablaPedidos">Pedidos</button>
             <button type="button" class="btn btn-secondary btn-lg" id="formularioModificar">Modificar cuenta</button>
         </div>
-        <div id="resultadoPedidos">%%facturas%%</div>
+    <div id="resalto"></div>
+    <div id="resultadoPedidos">%%facturas%%</div>
+    <div id="modificarCuenta">%%modificarCuenta%%</div>
     </div>
  %%footer%%
 </body>
