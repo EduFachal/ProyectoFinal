@@ -40,5 +40,6 @@ $model=[
     "footer" => $footerHtml 
 ];
 
+// Funcion para pintar las vistas creadas en el Index.html
 $printer->printView("Perfil", $model);
 ?>

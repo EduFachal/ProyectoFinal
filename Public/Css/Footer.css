@@ -1,0 +1,14 @@
+footer{
+    background-color: black;
+    color: white;
+}
+
+footer ul li{
+    margin-top: 17%;
+    margin-right: -15%;
+    list-style: none;
+}
+
+.col-sm-7 p{
+    margin: 5%;
+}

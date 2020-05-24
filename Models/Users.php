@@ -4,7 +4,7 @@ class Users extends DBConection{
     function __construct(){
         parent::__construct();
     }
-    // Funcion multitabla para sacar los datos de las facturas pasandole el ID del usuario
+    // Funcion multitabla para sacar los datos de las facturas como una array pasandole el ID del usuario
     public function getFacturas($id){
         $con= $this->conn;
         $intId= (int) $id;
@@ -25,6 +25,7 @@ class Users extends DBConection{
         return $arrayDatos;
   }
 
+  //Funcion para meter un array de facturas y sacar un string en forma de filas para pintarlo posteriormente
   public function stringFacturas($arrayFacturas){
     $facturas="";
     for ($i=0; $i < count($arrayFacturas); $i++) { 

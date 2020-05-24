@@ -8,6 +8,7 @@ include_once("../Models/Validate.php");
 $validate = new Validate();
 $menuPrint = new Menu();
 
+// Funcion para comprobar si hay usuario logeado y pintar los botones en el menu de las acciones a realizar -> Models/Validate.php
 $var = $menuPrint-> selection("home");
 if($validate -> checkConnect()){
     $botones= $menuPrint -> getMenu(1);
@@ -17,20 +18,22 @@ if($validate -> checkConnect()){
     $var["botonMenu"] = $botones;
 }
 
+// Funcion para crear la vista del menu y añadirla a Models/Index.php
 $printer = new PrintHtml();
 $menuHtml = $printer->createView("Menu",$var);
 
+// Funcion para crear la vista de offers y añadirla a Models/Index.php
 $offers = new Offer();
 $htmlOffers = $offers->printOffer();
 
-
-$bodyHtml ="<h1>Hola mundo</h1>";
-
+//Crear vista del footer para pintarlo en Index.html
+$footerHtml = $printer->createView("Footer",$var);
 $model=[
     "menu" => $menuHtml,
-    "body" => $bodyHtml,
-    "offer" => $htmlOffers
+    "offer" => $htmlOffers,
+    "footer" => $footerHtml 
 ];
 
+// Funcion para pintar las vistas creadas en el Index.html
 $printer->printView("Index", $model);
 ?>
