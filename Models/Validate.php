@@ -31,7 +31,6 @@ class Validate extends DBConection{
             $stmt->close();
         }
     }
-    //$this->destruct();
     return $rol;
 }
 public function getUser($user){
@@ -45,7 +44,6 @@ public function getUser($user){
       $arr=$myrow["idUsuario"];
     }
     $stmt->close();
-    //$this -> setId($arr);
     return $arr;
 }
 

@@ -2,7 +2,7 @@
 include_once("../Models/PrintHtml.php");
 include_once("../Models/Validate.php");
 include_once("../Models/Admin.php");
-
+include_once("../Models/DBModel/DBCreation.php");
 
 $validate= new Validate();
 $validate -> validateAdmin();

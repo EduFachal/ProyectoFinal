@@ -24,21 +24,19 @@ if($validate -> checkConnect()){
 if(isset($_POST['registrar'])){
     $register=new Admin();
     $arrayDatosCliente= array(
-        $_POST['usuario'],
-        $_POST['clave']/*,
-        $_POST['nombre'],
-        $_POST['apellidos'],
-        $_POST['email'],
-        $_POST['direccion'],
-        $_POST['codigoPostal'],
-        $_POST['localidad'],
-        $_POST['provincia'],
-        $_POST['telefono'],
-        $_POST['nacimiento']*/
+        "user" => $_POST['usuario'],
+        "pass" => $_POST['clave'],
+        "nombre" => $_POST['nombre'],
+        "apellidos" => $_POST['apellidos'],
+        "email" => $_POST['email'],
+        "direccion" => $_POST['direccion'],
+        "codigoPostal" => $_POST['codigoPostal'],
+        "localidad" => $_POST['localidad'],
+        "provincia" => $_POST['provincia'],
+        "telefono" => $_POST['telefono'],
+        "nacimiento" => $_POST['nacimiento']
     );
-    if($register -> aniadirCliente($arrayDatosCliente)){
-        echo "Exito";
-    }
+    $register -> aniadirCliente($arrayDatosCliente);  
 }
 $printer = new PrintHtml();
 $formulario = $printer->createView("Form",$var);

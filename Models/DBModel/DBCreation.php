@@ -1,8 +1,8 @@
 <?php
 
     //Establece la conexion a la base de datos
-    /* $con = new mysqli("localhost","root","","");
-  
+    $con = new mysqli("localhost","root","","");
+  /*
    if($con==true){
 
         if(!$con->query("CREATE DATABASE IF NOT EXISTS proyecto") ||
@@ -58,7 +58,7 @@
             idUsuario_user int,
             CONSTRAINT PK_DATA_CLIENT PRIMARY KEY (idCliente),
             CONSTRAINT FK_DATAUSER_IDUSER FOREIGN KEY (idUsuario_user)
-            REFERENCES usuarios(idUsuario));")){
+            REFERENCES usuarios(idUsuario) on delete cascade on update cascade);")){
                 die("Fallo en la creacion de la tabla datosClientes".$con->error);
                 $con=null;
                 $con->close();
@@ -72,7 +72,7 @@
             idCliente_datos int,
             CONSTRAINT PK_USERS PRIMARY KEY (idFactura),
             CONSTRAINT FK_FACTURADATACLIENT_IDCLIENT FOREIGN KEY (idCliente_datos)
-            REFERENCES datosClientes(idCliente));")){
+            REFERENCES datosClientes(idCliente) on delete cascade on update cascade);")){
                 die("Fallo en la creacion de la tabla facturas".$con->error);
                 $con=null;
                 $con->close();
@@ -86,9 +86,9 @@
             idArticulo_art int,
             stock int,
             CONSTRAINT FK_PEDIDOSFACTURA_IDFACT FOREIGN KEY (idFactura_fact)
-            REFERENCES facturas(idFactura),
+            REFERENCES facturas(idFactura) on delete cascade on update cascade,
             CONSTRAINT FK_PEDIDOSARTICULO_IDART FOREIGN KEY (idArticulo_art)
-            REFERENCES articulos(idArticulo));")){
+            REFERENCES articulos(idArticulo) on delete cascade on update cascade);")){
                 die("Fallo en la creacion de la tabla pedidos".$con->error);
                 $con=null;
                 $con->close();
@@ -114,10 +114,14 @@
 
         for($i=0;$i<count($usuarios);$i++) {
             $hash=password_hash($pass[$i],PASSWORD_DEFAULT);
-            $connex->query("INSERT INTO usuarios VALUES ('($i+1)',1,'$usuarios[$i]','$hash')");
+            $connex->query("INSERT INTO usuarios (rol,usuario,pass) VALUES (1,'$usuarios[$i]','$hash')");
             echo "//////////////////";
             print_r($connex);
         }
+        
+        //Para admin
+        $hash=password_hash("admin",PASSWORD_DEFAULT);
+        $connex->query("INSERT INTO usuarios (rol,usuario,pass) VALUES (0,'admin','$hash')");
     }else{
         die("No se ha podido conectar ". $connex->connect_error);
 		    $connex=null;
@@ -125,13 +129,10 @@
     }
 
 
-*/
+   
 
 
-
-
-
-
+/*
     //Crea la base de datos si no existe y lo modifica a UTF8
     function crearBaseDatos($con){
 
@@ -197,4 +198,4 @@
             $stmt->execute();
             $stmt->close();
         }
-    }
+    }*/
