@@ -78,16 +78,42 @@ class Admin extends DBConection{
 
     public function updateUser($cadena){
         $con = $this ->conn;
-        $stmt = $con->prepare("UPDATE productos SET alimento=? WHERE alimento='caca'");
-        $stmt->bind_param("s",$datos["alimento"]);
-        $stmt -> execute(); 
-        $stmt->close();
-        $result = $stmt->get_result();  
-        $arr="";
-        while($myrow = $result->fetch_assoc()) {
-          $arr=$myrow["idUsuario"];
+        $sql ="UPDATE usuarios, datosclientes SET ";
+        $keys="";
+        $count=1;
+        $params=array();
+        $cadenaDeStrings="";
+        for ($i=0; $i <count($cadena) ; $i++) { 
+            $cadenaDeStrings.="s";
         }
+        $cadenaDeStrings = substr($cadenaDeStrings,0,-1);
+        $cadenaDeStrings.="i";
+        $params[0]=$cadenaDeStrings;
+        foreach ($cadena as $key => $value) {
+            if($key!="idUsuario"){
+                $keys.=$key."=?,";
+            }
+            if($key != "pass"){
+                    $params[$count]=&$cadena[$key];
+            }else{
+                    $hash=password_hash($value,PASSWORD_DEFAULT);
+                    $params[$count]=&$hash;
+            }
+            $count++;
+        }
+        $keys = substr($keys,0,-1);
+        $idUser=intval($params[count($params)-1]);
+        $sql = $sql.$keys." WHERE usuarios.idUsuario=?";
+        echo $sql;
+        $stmt = $con->prepare($sql);
+        $params[count($params)-1]= $idUser;
+        echo $idUser;
+        call_user_func_array(array($stmt,"bind_param"), $params);
+        $validar = false;
+        if($stmt -> execute()){
+            $validar= true;
+        } 
         $stmt->close();
-        return $arr;
+        return $validar;
     }
 }

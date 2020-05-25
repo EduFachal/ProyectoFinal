@@ -24,8 +24,7 @@ class DBArticles extends DBConection{
       }
       $stmt->free_result();
       $stmt->close();
-      return $arrayDatos;
-      
+      return $arrayDatos; 
     }
 
     public function getArticleById($id){

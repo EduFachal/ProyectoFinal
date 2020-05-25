@@ -2,10 +2,10 @@
 include_once(__DIR__.'/DBModel/DBArticles.php');
 class Offer{
 
-    function getOffer(){
-        $a = new DBArticles();
-        $a->getArticle(1);
-        return [
+    function getOffer($cadena){
+        $article = new DBArticles();
+        $articles = $article->getArticleByString($cadena);
+       /* return [
             "0"=>[
                 'id'=>21,
                 "nombre"=>"Camiseta"],
@@ -21,20 +21,30 @@ class Offer{
                 'id'=>24,
                 "nombre"=>"edufeo"
             ]
-        ];
+        ];*/
+        for ($i=0; $i < count($articles); $i++) { 
+            $articles[$i]['url'] = '../Controllers/Producto.php?idArticulo='.$articles[$i]['idArticulo'];
+            $articles[$i]['urlImg'] = '../Public/Img/Articles/'.$articles[$i]['idArticulo'].'.jpg';
+        } 
+       return $articles;
     }
+
+    
     
 
     // Funcion para imprimir las ofertas, recoge la info de getOffer
-    function printOffer(){
-        $arr = $this->getOffer();
+    function printOffer($offersPrint){
         $htmlOffer="<ul>";
 
-        for ($i=0; $i <count($arr) ; $i++) { 
-            $htmlOffer.="
+        for ($i=0; $i <count($offersPrint) ; $i++) { 
+           /* $htmlOffer.="
                 <li>
-                    <a href='../public/articulo.php?id=".$arr[$i]['id']."'>".$arr[$i]['nombre']."</a>
-                </li>";    
+                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."'>".$offersPrint[$i]['nombre']."</a>
+                </li>";    */
+                $htmlOffer.="
+                <li>
+                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."'><img src='../Public/Img/Articles/".$offersPrint[$i]['idArticulo'].".jpg'></a>
+                </li>";  
         }
         $htmlOffer.="</ul>";
         return $htmlOffer;

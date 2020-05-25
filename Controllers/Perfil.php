@@ -34,6 +34,7 @@ $tablaFacturasHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
 
 $datosController["nombreFormularioCabecera"] = "Modificar Cuenta";
 $datosController["nombreFormularioBoton"] = "Modificar";
+$datosController["idUsuario"]=$_SESSION["idUsuario"];
 $formHtml = $printer -> createView("FormMod",$datosController);
 
 //Crear vista del footer para pintarlo en Perfil.html

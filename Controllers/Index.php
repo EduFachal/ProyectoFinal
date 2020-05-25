@@ -23,7 +23,8 @@ $menuHtml = $printer->createView("Menu",$var);
 
 // Funcion para crear la vista de offers y añadirla a Models/Index.php
 $offers = new Offer();
-$htmlOffers = $offers->printOffer();
+$offersPrint = $offers -> getOffer("camiseta");
+$htmlOffers = $offers->printOffer($offersPrint);
 
 //Crear vista del footer para pintarlo en Index.html
 $footerHtml = $printer->createView("Footer",$var);
