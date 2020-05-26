@@ -9,8 +9,8 @@ class Validate extends DBConection{
         parent::__construct();
     }
 
+    // Funcion para comprobar si un usuario existe en la BBDD y te saca su rol
     public function comprobar_usuario($name, $clave){
-    
     $rol=null;
     $con = $this ->conn;
     $stmt = $con ->prepare("SELECT pass FROM usuarios WHERE usuario=?");
@@ -33,6 +33,8 @@ class Validate extends DBConection{
     }
     return $rol;
 }
+
+// Funcion para sacar el idUsuario a partir del usuario
 public function getUser($user){
     $con = $this ->conn;
     $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");

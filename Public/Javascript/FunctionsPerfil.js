@@ -6,7 +6,7 @@ window.onload = function () {
     document.getElementById("modificarCuenta").style.display = "none";
 }
 
-//Funcion para pintar el formulario de pedidos del usuario
+//Funcion para pintar la tabla de pedidos del usuario
 function getFacturas() {
     var espacio = document.getElementById("resalto");
     var botonPedidos = document.getElementById("resultadoPedidos");
@@ -40,6 +40,7 @@ function getFormCuenta() {
     }
 }
 
+// Funcion con Ajax para enviarle los inputs con los datos a modificar en el usuario
 function modificarCuentaUsuario() {
     var xmlhttp = new XMLHttpRequest();
     var arrayInput = document.getElementsByTagName("input");

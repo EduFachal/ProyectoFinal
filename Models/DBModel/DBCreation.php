@@ -2,7 +2,7 @@
 
     //Establece la conexion a la base de datos
     $con = new mysqli("localhost","root","","");
-  /*
+  
    if($con==true){
 
         if(!$con->query("CREATE DATABASE IF NOT EXISTS proyecto") ||
@@ -108,15 +108,13 @@
     $connex=new mysqli("localhost","proyecto","proyecto","proyecto");
 
     if($connex==true){
-
+        aniadirArticulos($connex);
         $usuarios=array("alexsn","mariasa","danife","miguelgg","teemo");
         $pass=array("a1234","b4789","c6598","d546213","e1546");
 
         for($i=0;$i<count($usuarios);$i++) {
             $hash=password_hash($pass[$i],PASSWORD_DEFAULT);
             $connex->query("INSERT INTO usuarios (rol,usuario,pass) VALUES (1,'$usuarios[$i]','$hash')");
-            echo "//////////////////";
-            print_r($connex);
         }
         
         //Para admin
@@ -129,73 +127,25 @@
     }
 
 
-   
+  
 
 
-/*
-    //Crea la base de datos si no existe y lo modifica a UTF8
-    function crearBaseDatos($con){
+    function aniadirArticulos($connex){
+        $nombresArticulos=array(
+            'camiseta vans amarilla','camiseta vans morada','camiseta nike negra','pantalon adidas negro','pantalon puma negro','pantalon fila azul','zapatillas nike negro','zapatillas nike rojo','zapatillas adidas rojo',
+            'camiseta fila negra','camiseta puma blanca','camiseta puma rosa','pantalon puma negro','pantalon boriken negro','pantalon boriken gris','zapatillas nike negro','zapatillas puma blancas','zapatillas fila gris',
+            'camiseta puma naranja','camiseta puma blanca','camiseta nike amarilla','pantalon fila negro','pantalon nike gris','pantalon fila gris','zapatillas converse blanca','zapatillas fila gris','zapatillas nike blanca');
 
-        if(!$con->query("CREATE DATABASE IF NOT EXISTS tienda2") ||
-        !$con->query("ALTER DATABASE tienda2 CHARACTER SET utf8 COLLATE utf8_general_ci")){
-            die("Fallo en la creacion de la base de datos".$con->error);
-            $con=null;
-		    $con->close();
+        $precios=array(7.99, 12.99, 9.99, 11.90,5.90, 6.90 , 18.99, 49.99, 11.90,5.90, 6.90 , 17.90, 7.99, 9.99, 19.99, 21.90, 7.99, 12.99, 9.99, 11.90,7.99, 12.99, 9.99, 11.90, 22.99, 19.99, 31.90);
+
+        $stock=array(30, 35, 40, 40,20,15,20,30,35,25,20,10,15, 15, 20, 25, 30, 35, 40, 45, 25, 30, 35, 40, 45,50,60);
+
+        $sql ="INSERT INTO articulos (nombre,precio,stock) VALUES";
+
+        for($i=0;$i<count($nombresArticulos);$i++){
+            $sql.="('".$nombresArticulos[$i]."',".$precios[$i].",".$stock[$i]."),";
         }
+        $sql = rtrim($sql, ',');
+
+        $connex->query($sql);
     }
-
-    //Crea el usuario y le da privilegios en caso de no existir
-    function crearAdmin($con){ 
-        if(!$con->query("CREATE USER IF NOT EXISTS 'proyectoAdmin'@'localhost' IDENTIFIED BY 'proyectoAdmin'")||
-        !$con->query("GRANT select,insert,update,delete ON proyecto.* TO 'proyectoAdmin'@'localhost' IDENTIFIED BY 'proyectoAdmin'")){
-           die("Fallo en la creacion del usuario".$con->error);
-           $con=null;
-		   $con->close();
-       }
-
-        $stmt=$con->prepare("INSERT INTO proyecto.usuarios (idUsuario,rol,usuario,pass) VALUES (?,?,?,?)");
-        $hash=password_hash("admin",PASSWORD_DEFAULT);
-        $nom="admin";
-        $rol=0;
-        $num=0;
-        $stmt->bind_param("iiss",$num,$rol,$nom,$hash);
-        $stmt->execute();   
-        $stmt->close();
-    }
-
-    function crearUsuario($con){
-        if(!$con->query("CREATE USER IF NOT EXISTS 'tienda2'@'localhost' IDENTIFIED BY 'tienda2'")||
-        !$con->query("GRANT select,insert,update,delete ON tienda2.* TO 'tienda2'@'localhost' IDENTIFIED BY 'tienda2'")){
-           die("Fallo en la creacion del usuario".$con->error);
-           $con=null;
-		   $con->close();
-       }
-    }
-
-    //Crea la tabla users en tienda2 en caso de no existir
-    function crearTabla($con){
-        if(!$con->query("CREATE TABLE IF NOT EXISTS tienda2.users(
-            nombre varchar(30),
-            pass varchar(65),
-            CONSTRAINT PK_USERS PRIMARY KEY (nombre));")){
-                die("Fallo en la creacion de la tabla".$con->error);
-                $con=null;
-                $con->close();
-        }
-    }
-
-    function insertarQuery($connex){
-        // Genero dos arrays con la informacion que voy a insertar
-        $usuarios=array("alexsn","mariasa","danife","miguelgg","teemo");
-        $pass=array("a1234","b4789","c6598","d546213","e1546");
-        $cont=count($usuarios);
-
-        // Recorro los dos arrays a la vez e insertando la informacion
-        for($i=0;$i<$cont;$i++) {
-            $stmt=$connex->prepare("INSERT INTO users (nombre,pass) VALUES (?,?)");
-            $hash=password_hash($pass[$i],PASSWORD_DEFAULT);
-            $stmt->bind_param("ss",$usuarios[$i],$hash);
-            $stmt->execute();
-            $stmt->close();
-        }
-    }*/

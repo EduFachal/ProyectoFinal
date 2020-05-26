@@ -1,0 +1,51 @@
+/* DIV CENTRAL PARA EL BODY */
+.back-form{
+    width: 100%;
+    height:100%;
+    margin-top: -20px;
+}
+
+/* BOTONES DE PEDIDOS Y MODIFICAR CUENTA */
+#buttonCesta{
+    margin-top: 10%;
+    margin-left: 42%;
+    margin-bottom: 8%;
+}
+
+
+/*  TABLA CESTA */
+#resultadoFactura{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 15%;
+}
+
+/* TIENDA DESTINO */
+.tienda{
+    width: 15%;
+    height: 100%;
+    margin-left: 4%;
+}
+
+#sel1{
+    height: 100%;
+}
+
+/* PRECIOS */
+.precios{
+    margin-left: 45%;
+}
+
+.precios p{
+    display: inline;
+}
+
+#impuestos{
+    display: inline;
+    margin-left: 20%;
+}
+
+#dineroTotal{
+    display: inline;
+    margin-left: 22.5%;
+}
