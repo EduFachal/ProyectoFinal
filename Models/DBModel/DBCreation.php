@@ -132,9 +132,9 @@
 
     function aniadirArticulos($connex){
         $nombresArticulos=array(
-            'camiseta vans amarilla','camiseta vans morada','camiseta nike negra','pantalon adidas negro','pantalon puma negro','pantalon fila azul','zapatillas nike negro','zapatillas nike rojo','zapatillas adidas rojo',
-            'camiseta fila negra','camiseta puma blanca','camiseta puma rosa','pantalon puma negro','pantalon boriken negro','pantalon boriken gris','zapatillas nike negro','zapatillas puma blancas','zapatillas fila gris',
-            'camiseta puma naranja','camiseta puma blanca','camiseta nike amarilla','pantalon fila negro','pantalon nike gris','pantalon fila gris','zapatillas converse blanca','zapatillas fila gris','zapatillas nike blanca');
+            'camiseta vans amarilla hombre','camiseta vans morada hombre','camiseta nike negra hombre','pantalon adidas negro hombre','pantalon puma negro hombre','pantalon fila azul hombre','zapatillas nike negro hombre','zapatillas nike rojo hombre','zapatillas adidas rojo hombre',
+            'camiseta fila negra mujer','camiseta puma blanca mujer','camiseta puma rosa mujer','pantalon puma negro mujer','pantalon boriken negro mujer','pantalon boriken gris mujer','zapatillas nike negro mujer','zapatillas puma blancas mujer','zapatillas fila gris mujer',
+            'camiseta puma naranja kids','camiseta puma blanca kids','camiseta nike amarilla kids','pantalon fila negro kids','pantalon nike gris kids','pantalon fila gris kids','zapatillas converse blanca kids','zapatillas fila gris kids','zapatillas nike blanca kids');
 
         $precios=array(7.99, 12.99, 9.99, 11.90,5.90, 6.90 , 18.99, 49.99, 11.90,5.90, 6.90 , 17.90, 7.99, 9.99, 19.99, 21.90, 7.99, 12.99, 9.99, 11.90,7.99, 12.99, 9.99, 11.90, 22.99, 19.99, 31.90);
 

@@ -2,15 +2,15 @@
 include_once("../Models/PrintHtml.php");
 include_once("../Models/Validate.php");
 include_once("../Models/Admin.php");
-include_once("../Models/DBModel/DBCreation.php");
+
 
 $validate= new Validate();
 $validate -> validateAdmin();
 
-// Metodo desarrollado en la clase Users
+// Comprobacion para eliminar un usuario
 if(isset($_POST['eliminar'])){
-    $elim=new Admin();
-    if($elim -> eliminarUsuario($_POST['eliminar'])){
+    $delete=new Admin();
+    if($delete -> eliminarUsuario($_POST['eliminar'])){
         echo "Exito";
     }
 }
@@ -18,8 +18,10 @@ if(isset($_POST['eliminar'])){
 if(isset($_POST['modificar'])){
 
 }
+
+// Funcion para modificar
 $printer = new PrintHtml();
-$formulario = $printer->createView("Form",$printer);
+$form = $printer->createView("Form",$printer);
 $users = new Admin();
 $values = $users -> getUsers(); 
 

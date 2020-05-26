@@ -9,10 +9,10 @@ $validate = new Validate();
 $menuPrint = new Menu();
 
 // Funcion para validar si hay alguien logeado y en el caso de ser Admin le redirija a la de Admin -> Models/Validate.php
-$datosController;
+$dataControllerCesta;
 if($validate -> checkConnect()){
-    $botones= $menuPrint -> getMenu(1);
-    $datosController["botonMenu"] = $botones;
+    $buttonProfile= $menuPrint -> getMenu(1);
+    $dataControllerCesta["botonMenu"] = $buttonProfile;
     if($_SESSION['rol']==0){
         header("Location: ../Controllers/Admin.php");
     }
@@ -21,29 +21,29 @@ if($validate -> checkConnect()){
 }
 // Funcion para añadir el menu en la pagina -> Models/Funcion en PrintHtml.php
 $printer = new PrintHtml();
-$menuHtml = $printer->createView("Menu",$datosController);
+$menuHtml = $printer->createView("Menu",$dataControllerCesta);
 
 //Funcion para sacar en un array las facturas pasandole el ID usuario -> Models/Funcion en Users.php
 $users = new Users();
-$datosFacturas= $users->getFacturas($_SESSION["idUsuario"]);
+$dataBills= $users->getFacturas($_SESSION["idUsuario"]);
 
 //Funcion para convertir en un string el array de facturas -> Models/Users.php
-$tablaFacturas = $users->stringFacturas($datosFacturas);
+$reportBill = $users->stringFacturas($dataBills);
 
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
-$datosPrintFacturas = ["datosTabla" => $tablaFacturas];
-$tablaFacturasHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
+$datosPrintFacturas = ["datosTabla" => $reportBill];
+$reportBillHtml = $printer->createView("reportBill",$datosPrintFacturas);
 
-$datosController["idUsuario"]=$_SESSION["idUsuario"];
+$dataControllerCesta["idUsuario"]=$_SESSION["idUsuario"];
 
-//Crear vista del footer para pintarlo en Perfil.html
-$footerHtml = $printer->createView("Footer",$datosController);
+//Crear vista del footer para pintarlo en Cesta.html
+$footerHtml = $printer->createView("Footer",$dataControllerCesta);
 $model=[
     "menu" => $menuHtml,
-    "pedido" =>$tablaFacturasHtml,
+    "pedido" =>$reportBillHtml,
     "footer" => $footerHtml 
 ];
 
-// Funcion para pintar las vistas creadas en el Index.html
+// Funcion para pintar las vistas creadas en el Cesta.html
 $printer->printView("Cesta", $model);
 ?>

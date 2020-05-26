@@ -9,39 +9,39 @@ $validate = new Validate();
 $menuPrint = new Menu();
 
 // Funcion para validar si hay alguien logeado y en el caso de ser Admin le redirija a la de Admin -> Models/Validate.php
-$datosController;
+$dataControllerPerfil;
 if($validate -> checkConnect()){
-    $botones= $menuPrint -> getMenu(1);
-    $datosController["botonMenu"] = $botones;
+    $buttonProfile= $menuPrint -> getMenu(1);
+    $dataControllerPerfil["botonMenu"] = $buttonProfile;
     if($_SESSION['rol']==0){
         header("Location: ../Controllers/Admin.php");
     }
 }
 // Funcion para añadir el menu en la pagina -> Models/Funcion en PrintHtml.php
 $printer = new PrintHtml();
-$menuHtml = $printer->createView("Menu",$datosController);
+$menuHtml = $printer->createView("Menu",$dataControllerPerfil);
 
 //Funcion para sacar en un array las facturas pasandole el ID usuario -> Models/Funcion en Users.php
 $users = new Users();
-$datosFacturas= $users->getFacturas($_SESSION["idUsuario"]);
+$dataBill= $users->getFacturas($_SESSION["idUsuario"]);
 
 //Funcion para convertir en un string el array de facturas -> Models/Users.php
-$tablaFacturas = $users->stringFacturas($datosFacturas);
+$reportBill = $users->stringFacturas($dataBill);
 
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
-$datosPrintFacturas = ["datosTabla" => $tablaFacturas];
-$tablaFacturasHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
+$dataBillPrint = ["datosTabla" => $reportBill];
+$reportBillHtml = $printer->createView("TablaFacturas",$dataBillPrint);
 
-$datosController["nombreFormularioCabecera"] = "Modificar Cuenta";
-$datosController["nombreFormularioBoton"] = "Modificar";
-$datosController["idUsuario"]=$_SESSION["idUsuario"];
-$formHtml = $printer -> createView("FormMod",$datosController);
+$dataControllerPerfil["nombreFormularioCabecera"] = "Modificar Cuenta";
+$dataControllerPerfil["nombreFormularioBoton"] = "Modificar";
+$dataControllerPerfil["idUsuario"]=$_SESSION["idUsuario"];
+$formHtml = $printer -> createView("FormMod",$dataControllerPerfil);
 
 //Crear vista del footer para pintarlo en Perfil.html
-$footerHtml = $printer->createView("Footer",$datosController);
+$footerHtml = $printer->createView("Footer",$dataControllerPerfil);
 $model=[
     "menu" => $menuHtml,
-    "facturas" =>$tablaFacturasHtml,
+    "facturas" =>$reportBillHtml,
     "modificarCuenta"=>$formHtml,
     "footer" => $footerHtml 
 ];

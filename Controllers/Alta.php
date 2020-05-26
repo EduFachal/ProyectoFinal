@@ -9,14 +9,14 @@ $validate = new Validate();
 $menuPrint = new Menu();
 
 // Funcion para comprobar si hay usuario logeado y pintar los botones en el menu de las acciones a realizar -> Models/Validate.php
-$datosController = $menuPrint-> selection("home");
+$dataControllerAlta = $menuPrint-> selection("home");
 if($validate -> checkConnect()){
-    $botones= $menuPrint -> getMenu(1);
-    $datosController["botonMenu"] = $botones;
+    $buttonProfile= $menuPrint -> getMenu(1);
+    $dataControllerAlta["botonMenu"] = $buttonProfile;
     
 }else{
-    $botones= $menuPrint -> getMenu(0);
-    $datosController["botonMenu"] = $botones;
+    $buttonProfile= $menuPrint -> getMenu(0);
+    $dataControllerAlta["botonMenu"] = $buttonProfile;
 }
 
 /* Metodo para registrar un usuario en Alta, instanciando un objeto de Users para luego 
@@ -24,7 +24,7 @@ if($validate -> checkConnect()){
 
 if(isset($_POST['registrar'])){
     $register=new Admin();
-    $arrayDatosCliente= array(
+    $arrayDataClient= array(
         "user" => $_POST['usuario'],
         "pass" => $_POST['clave'],
         "nombre" => $_POST['nombre'],
@@ -37,24 +37,25 @@ if(isset($_POST['registrar'])){
         "telefono" => $_POST['telefono'],
         "nacimiento" => $_POST['nacimiento']
     );
-    $register -> aniadirCliente($arrayDatosCliente);  
+    $register -> aniadirCliente($arrayDataClient);  
 }
 
-// Funcion para crear la vista del formulario pasandole los nombres necesarios
+// Funcion para crear la vista del formulario pasandole los nombres necesarios para la cabecera y el boton
 $printer = new PrintHtml();
-$datosController["nombreFormularioCabecera"] = "Registrate";
-$datosController["nombreFormularioBoton"] = "Registrate";
-$formulario = $printer->createView("Form",$datosController);
+$dataControllerAlta["nombreFormularioCabecera"] = "Registrate";
+$dataControllerAlta["nombreFormularioBoton"] = "Registrate";
+$form = $printer->createView("Form",$dataControllerAlta);
 
 // Funcion para crear la vista del menu
-$menuHtml = $printer->createView("Menu",$datosController);
+$menuHtml = $printer->createView("Menu",$dataControllerAlta);
 
 //Crear vista del footer para pintarlo en Alta.html
-$footerHtml = $printer->createView("Footer",$datosController);
+$footerHtml = $printer->createView("Footer",$dataControllerAlta);
 
+// Array con todos los datos que se van a pintar
 $model=[
     "menu" => $menuHtml,
-    "formulario" => $formulario,
+    "formulario" => $form,
     "footer" => $footerHtml 
 ];
 

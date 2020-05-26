@@ -1,4 +1,10 @@
-/* CSS FORMULARIO ALTA USUARIO*/
+/* 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+                      
+                          FORMULARIO ALTA USUARIO, CAPAS DEL FONDO DEL FORMULARIO
+                   
+////////////////////////////////////////////////////////////////////////////////////////////////////                        
+*/
 #cover {
     color: white;
     height: 100%;
@@ -20,16 +26,27 @@
     width: 100%;
     border: solid white 1px;
     border-radius: 10%;
+    font-family: 'Lato';
+    font-size: 1.5rem;
 }
 
 #cover-caption h2{
     position: flex;
     margin-bottom: 45px;
+    font-size: 1.5rem;
 }
 
 #link_alta{
     color: white;
 }
+
+/* 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+                      
+                    MODIFICACIONES Y SEPARACIONES DE INPUTS DEL FORMULARIO
+                   
+////////////////////////////////////////////////////////////////////////////////////////////////////                        
+*/
 #exampleInputPassword1{
     margin-bottom: 15%;
 }
@@ -41,6 +58,7 @@ form.register{
     width: 100%;
     font-size: 1.6rem;
     margin-bottom: 10%;
+    font-family: 'Oswald';
 }
 
 button.register{
