@@ -7,11 +7,14 @@ class DBArticles extends DBConection{
       //  print_r($this->conn);
     }
 
-    public function getArticleByString($cadena){
+    /* Funcion para sacar un array de articulos pasandole una cadena de texto, filtro Like, usado en producto, 
+    tipos de ropa y buscador de ropa del menu principal */
+
+    public function getArticleByString($sentence){
 	  	$con= $this->conn;
-      $cadena = "%$cadena%";
+      $sentence = "%$sentence%";
       $stmt = $con->prepare("SELECT idArticulo,nombre,precio FROM articulos WHERE nombre LIKE ?");
-      $stmt->bind_param("s",$cadena);
+      $stmt->bind_param("s",$sentence);
 		  $stmt -> execute();
       $result = $stmt->get_result();  
       $arrayDatos=[];
@@ -27,6 +30,7 @@ class DBArticles extends DBConection{
       return $arrayDatos; 
     }
 
+    // Funcion para recoger un articulo pasandole su id correspondiente
     public function getArticleById($id){
       $con= $this->conn;
       $num = (int) $id;

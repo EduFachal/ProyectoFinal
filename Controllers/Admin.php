@@ -15,20 +15,16 @@ if(isset($_POST['eliminar'])){
     }
 }
 
-if(isset($_POST['modificar'])){
-
-}
-
 // Funcion para modificar
 $printer = new PrintHtml();
-$form = $printer->createView("Form",$printer);
+
+
 $users = new Admin();
-$values = $users -> getUsers(); 
+$values = $users -> getUsers();
 
 
 $model=[
-    "valores" => $values,
-    "formulario" => $formulario
+    "valores" => $values
 ];
 
 $printer->printView("Admin", $model);

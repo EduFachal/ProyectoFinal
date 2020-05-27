@@ -44,7 +44,8 @@ function getFormCuenta() {
 function modificarCuentaUsuario() {
     var xmlhttp = new XMLHttpRequest();
     var arrayInput = document.getElementsByTagName("input");
-    var idUsuario = document.getElementsByClassName("identificadorUsuario")[0].innerHTML;
+    var idUsuario = document.getElementById("modificar").getAttribute("data-id");
+    
     var data = {}
     var url = "../Api/UpdateUser.php";
     for (let i = 0; i < arrayInput.length; i++) {

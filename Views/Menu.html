@@ -1,16 +1,3 @@
-<!--<nav>
-    
-<ul>
-    <li><a href="#" class="%%cesta%%">Cesta</a></li>
-    <li><a href="#" class="%%home%%">Home</a></li>
-    <li><a href="#" class="%%perfil%%">Perfil</a></li>
-</ul>
-<ul>
-    <li><a href="#" class="%%mujer%%">Mujer</a></li>
-    <li><a href="#" class="%%hombre%%">Hombre</a></li>
-    <li><a href="#" class="%%niño%%">Niño</a></li>
-</ul>
-</nav>-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -42,21 +29,18 @@
           </div>
         </div> 
     </div>
-<div class="navbar navbar-expand-sm navbar-light bg-light">
+ <div class="navbar navbar-expand-sm navbar-light bg-light">
     
   <div id="clothesMenu">
     <ul class="navbar-nav justify-content-center">
       <li class="nav-item">
-        <!--<a class="nav-link" href="#">Mujer<input type="hidden" value=".<?php >."</a>-->
-        <form method='POST' action='../Controllers/TiposRopa.php'><input type='submit' value='mujer' name='redirigirRopa' class="ropaMenuBotones"></form>
+        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=mujer">Mujer</a>
       </li>
       <li class="nav-item">
-        <!--<a class="nav-link" href="#">Hombre</a>-->
-        <form method='POST' action='../Controllers/TiposRopa.php'><input type='submit' value='hombre' name='redirigirRopa' class="ropaMenuBotones"></form>
+        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=hombre">Hombre</a>
       </li>
       <li class="nav-item">
-        <!--<a class="nav-link" href="#">Kids</a>-->
-        <form method='POST' action='../Controllers/TiposRopa.php'><input type='submit' value='kids' name='redirigirRopa' class="ropaMenuBotones"></form>
+        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=infantil">Infantil</a>
       </li>        
     </ul>
 </div>

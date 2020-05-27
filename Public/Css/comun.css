@@ -55,4 +55,47 @@ body h2{
     font-family: 'Lato';
 }
 
-/* */
+/* 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+                      
+                          OFERTAS Y CSS DEL PRODUCTO
+                   
+////////////////////////////////////////////////////////////////////////////////////////////////////                        
+*/
+
+.imageProduct{
+    margin: 5%;
+}
+
+/* DIV DERECHA CON NOMBRE, PRECIO, AÑADIR*/
+.productDescript{
+    height: 100%;
+    display: inline-block;
+    font-family: 'Lato';
+}
+.productDescript h2{
+    padding-top: 5%;
+    display: inline;
+    font-size: 2.4em;
+}
+
+.productDescript p{
+    text-align: center;
+    margin-top: 15%;
+    font-size: 2em;
+}
+
+#buttonAddProduct{
+    margin-left: 20%;
+    margin-top: 20%;
+    font-size: 2em;
+    font-family: 'Oswald';
+}
+.form-check{
+    margin-top: 10%;
+    margin-left: 18%;
+}
+#lot{
+    margin-top: 12%;
+    font-size: 1em;
+}

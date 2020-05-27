@@ -88,7 +88,7 @@
             </div>
 
             <div class="form-group col-md-4 separacionBotones">
-                <input type="text" class="form-control form-control-sm" name="telefono">
+                <input type="text" class="form-control form-control-sm" name="telefono" pattern="[0-9]{9}">
             </div>
 
             <!--Fecha de Nacimiento-->
@@ -100,8 +100,7 @@
                 <input type="text" class="form-control form-control-sm" name="fechaNacimiento"
                     pattern="\d{1,2}/\d{1,2}/\d{4}">
             </div>
-            <div class="identificadorUsuario">%%idUsuario%%</div>
-            <button type="button" class="btn btn-primary register" id="modificar">%%nombreFormularioBoton%%</button>
+            <button type="button" class="btn btn-primary register" data-id="%%idUsuario%%" id="modificar">%%nombreFormularioBoton%%</button>
         </form>
     </div>
 </div>

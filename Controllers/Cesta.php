@@ -32,7 +32,7 @@ $reportBill = $users->stringFacturas($dataBills);
 
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
 $datosPrintFacturas = ["datosTabla" => $reportBill];
-$reportBillHtml = $printer->createView("reportBill",$datosPrintFacturas);
+$reportBillHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
 
 $dataControllerCesta["idUsuario"]=$_SESSION["idUsuario"];
 

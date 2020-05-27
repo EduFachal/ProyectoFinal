@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////                       
 */
 #clothesMenu{
-    margin-left:45%;  
+    margin-left:40%;  
 }
 
 .nav-item{
@@ -73,28 +73,3 @@ nav{
 #findProduct{
     width: 400px;
 }
-
-
-/* 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-                      
-                    MENU DIFERENTES ROPAS
-                   
-////////////////////////////////////////////////////////////////////////////////////////////////////                        
-*/
-.ropaMenuBotones{
-    border: none;
-    background:none;
-    color: grey;
-    margin-right: 10px;
-    font-size: 1.5em;
-    font-family: 'Oswald';
-}
-.ropaMenuBotones:hover{
-    color: black;
-}
-@media (max-width: 600px) {
-    .ropaMenuBotones{
-        padding: 25px;
-    }
-  }

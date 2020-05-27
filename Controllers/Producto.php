@@ -31,7 +31,7 @@ $articleData = $articles -> getArticleById($_GET['idArticulo']);
 $raiz="";
 if($_GET['idArticulo']<10){
     $raiz="Man";
-}else if($_GET['idArticulo']>10 && $_GET['idArticulo']<19){
+}else if($_GET['idArticulo']>9 && $_GET['idArticulo']<19){
     $raiz="Woman";
 }else{
     $raiz="Kids";

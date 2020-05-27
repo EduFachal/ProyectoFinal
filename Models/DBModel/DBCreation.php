@@ -2,7 +2,7 @@
 
     //Establece la conexion a la base de datos
     $con = new mysqli("localhost","root","","");
-  
+  /*
    if($con==true){
 
         if(!$con->query("CREATE DATABASE IF NOT EXISTS proyecto") ||
@@ -84,7 +84,6 @@
             precioTotal decimal(10,2),
             idFactura_fact int,
             idArticulo_art int,
-            stock int,
             CONSTRAINT FK_PEDIDOSFACTURA_IDFACT FOREIGN KEY (idFactura_fact)
             REFERENCES facturas(idFactura) on delete cascade on update cascade,
             CONSTRAINT FK_PEDIDOSARTICULO_IDART FOREIGN KEY (idArticulo_art)
@@ -103,12 +102,12 @@
 		    $con=null;
 		    $con->close(); 
     }
-
+*/
     //Establece la conexion al usuario tienda2
     $connex=new mysqli("localhost","proyecto","proyecto","proyecto");
 
     if($connex==true){
-        aniadirArticulos($connex);
+     //   aniadirArticulos($connex);
         $usuarios=array("alexsn","mariasa","danife","miguelgg","teemo");
         $pass=array("a1234","b4789","c6598","d546213","e1546");
 
@@ -118,8 +117,8 @@
         }
         
         //Para admin
-        $hash=password_hash("admin",PASSWORD_DEFAULT);
-        $connex->query("INSERT INTO usuarios (rol,usuario,pass) VALUES (0,'admin','$hash')");
+       // $hash=password_hash("admin",PASSWORD_DEFAULT);
+      //  $connex->query("INSERT INTO usuarios (rol,usuario,pass) VALUES (0,'admin','$hash')");
     }else{
         die("No se ha podido conectar ". $connex->connect_error);
 		    $connex=null;
@@ -129,7 +128,7 @@
 
   
 
-
+/*
     function aniadirArticulos($connex){
         $nombresArticulos=array(
             'camiseta vans amarilla hombre','camiseta vans morada hombre','camiseta nike negra hombre','pantalon adidas negro hombre','pantalon puma negro hombre','pantalon fila azul hombre','zapatillas nike negro hombre','zapatillas nike rojo hombre','zapatillas adidas rojo hombre',
@@ -149,3 +148,4 @@
 
         $connex->query($sql);
     }
+*/

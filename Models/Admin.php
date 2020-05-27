@@ -16,11 +16,12 @@ class Admin extends DBConection{
         $stmt -> execute();
         $result = $stmt->get_result();  
         $arr="";
+        // ."<td><form method='POST' action='../Controllers/Admin.php'><input type='submit' value='".$myrow["idUsuario"]."' name='eliminar' class='deleteButton'></form></td></tr>";
         while($myrow = $result->fetch_assoc()) {
             $arr.="<tr><td>".$myrow["idUsuario"]."</td>"
                 ."<td>".$myrow["usuario"]."</td>"
-                ."<td><input type='checkbox' value='".$myrow["idUsuario"]."' class='checkMod'></td>"
-                ."<td><form method='POST' action='../Controllers/Admin.php'><input type='submit' value='".$myrow["idUsuario"]."' name='eliminar' class='deleteButton'></form></td></tr>";
+                ."<td><input type='button'  data-id='".$myrow["idUsuario"]."' value ='X' class='checkMod'></td>"
+                ."<td><i class='fas fa-times deleteButton' data-id='".$myrow["idUsuario"]."'></td></tr>";
         }
         $stmt->close();
         return $arr;
@@ -31,7 +32,6 @@ class Admin extends DBConection{
         $val=false;
         $con = $this ->conn;
         $intId= (int) $id;
-        echo $intId;
         $stmt=$con->prepare("DELETE FROM usuarios WHERE idUsuario=?");
         $stmt->bind_param("i",$intId);
         if($stmt->execute()){
@@ -53,7 +53,7 @@ class Admin extends DBConection{
             $stmt->close();
             $intId= (int) $this->getUser($arrayDatos["user"]);
             $stmt = $con->prepare("INSERT INTO datosclientes (nombre,apellidos,fechaNacimiento,telefono,email,direccion,codigoPostal,localidad,provincia,idUsuario_user) VALUES (?,?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssssssi",$arrayDatos["nombre"],$arrayDatos["apellidos"],$arrayDatos["email"],$arrayDatos["direccion"],$arrayDatos["codigoPostal"],$arrayDatos["localidad"],$arrayDatos["provincia"],$arrayDatos["telefono"],$arrayDatos["nacimiento"],$intId);
+            $stmt->bind_param("sssssssssi",$arrayDatos["nombre"],$arrayDatos["apellidos"],$arrayDatos["nacimiento"],$arrayDatos["telefono"],$arrayDatos["email"],$arrayDatos["direccion"],$arrayDatos["codigoPostal"],$arrayDatos["localidad"],$arrayDatos["provincia"],$intId);
             if($stmt->execute()){
                 $val=true;
             }            
@@ -107,13 +107,9 @@ class Admin extends DBConection{
         echo $sql;
         $stmt = $con->prepare($sql);
         $params[count($params)-1]= $idUser;
-        echo $idUser;
         call_user_func_array(array($stmt,"bind_param"), $params);
         $validar = false;
-        if($stmt -> execute()){
-            $validar= true;
-        } 
+        $stmt -> execute();
         $stmt->close();
-        return $validar;
     }
 }

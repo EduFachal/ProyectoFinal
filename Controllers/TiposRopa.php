@@ -16,10 +16,18 @@ if($validate -> checkConnect()){
     $dataTiposRopaPhp["botonMenu"] = $buttonProfile;
 }
 
+/* Funcion para recoger el value del menu y utilizarlo para sacar que tipo de ropa esta buscando,
+    generar la lista de ropa necesaria, se guardara en $clotheHtml y despues se pintara en Ropa.html*/
 
 $offers = new Offer();
-$offersPrint = $offers -> getOffer($_POST["redirigirRopa"]);
-$clotheHtml = $offers->printClothe($offersPrint,$_POST["redirigirRopa"]);
+
+$lowerCaseValueRedirect =strtolower($_GET["tipo"]);
+if($lowerCaseValueRedirect === "infantil"){
+    $lowerCaseValueRedirect = "kids";
+}
+$offersPrint = $offers -> getOffer($lowerCaseValueRedirect);
+$clotheHtml = $offers->printClothe($offersPrint,$lowerCaseValueRedirect);
+
 
 // Funcion para añadir el menu en la pagina -> Models/Funcion en PrintHtml.php
 $printer = new PrintHtml();
