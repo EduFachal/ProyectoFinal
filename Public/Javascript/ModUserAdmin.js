@@ -3,35 +3,56 @@ window.onload = function () {
     if (charge) {
         charge();
     }
-    document.getElementById("formUpdate").style.display="none";
-    var buttonsMod = document.getElementsByClassName("checkMod");
+    var buttonsMod = document.getElementsByClassName("updateButton");
     var buttondsDel = document.getElementsByClassName("deleteButton");
+    
     for (let i = 0; i < buttonsMod.length; i++) {
-        buttonsMod[i].addEventListener("click",formUpdate);
-        buttondsDel[i].addEventListener("click",this.modificarDatos);
+        buttonsMod[i].addEventListener("click",this.updateUser);
+        buttondsDel[i].addEventListener("click",this.deleteUser);
     }
 }
 
-function formUpdate(){
-    var displayForm = document.getElementById("formUpdate");
-    if(displayForm.style.display == 'none'){
-        displayForm.style.display = "block";
-    }else{
-        displayForm.style.display = "none";
+function updateUser(e){
+    var xmlhttp = new XMLHttpRequest();
+    var arrayInput = document.getElementsByTagName("input");
+    var user = e.currentTarget.getAttribute('data-id');
+    if (confirm("¿Estas seguro que deseas modificar este usuario?")) {
+        var data = {}
+        var url = "../Api/UpdateUser.php";
+        for (let i = 0; i < arrayInput.length; i++) {
+            if (arrayInput[i].value != "") {
+                data[arrayInput[i].name] = arrayInput[i].value;
+            }
+        }
+        data["idUsuario"] = user;
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                var resp = JSON.parse(this.responseText)
+                if (resp.status) {
+                    window.alert("Modificado")
+                    console.log(this.responseText);
+                }
+            }
+        });
+
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data));
     }
 }
 
-function modificarDatos(e) {
-
+function deleteUser(e) {
     //console.log(e.currentTarget.getAttribute('data-id'));
     var user = e.currentTarget.getAttribute('data-id');
     const element = e.currentTarget.parentElement.parentElement;
-    if (confirm("Estas seguro")) {
+    if (confirm("¿Estas seguro que deseas eliminar este usuario?")) {
         var data = new FormData();
         var url = "../Api/DeleteUser.php";
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
-
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 var resp = JSON.parse(this.responseText)

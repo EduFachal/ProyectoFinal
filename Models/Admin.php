@@ -20,7 +20,7 @@ class Admin extends DBConection{
         while($myrow = $result->fetch_assoc()) {
             $arr.="<tr><td>".$myrow["idUsuario"]."</td>"
                 ."<td>".$myrow["usuario"]."</td>"
-                ."<td><input type='button'  data-id='".$myrow["idUsuario"]."' value ='X' class='checkMod'></td>"
+                ."<td><i class='fas fa-times updateButton' data-id='".$myrow["idUsuario"]."'></td>"
                 ."<td><i class='fas fa-times deleteButton' data-id='".$myrow["idUsuario"]."'></td></tr>";
         }
         $stmt->close();
@@ -104,12 +104,14 @@ class Admin extends DBConection{
         $keys = substr($keys,0,-1);
         $idUser=intval($params[count($params)-1]);
         $sql = $sql.$keys." WHERE usuarios.idUsuario=?";
-        echo $sql;
         $stmt = $con->prepare($sql);
         $params[count($params)-1]= $idUser;
         call_user_func_array(array($stmt,"bind_param"), $params);
         $validar = false;
-        $stmt -> execute();
+        if($stmt->execute()){
+            $validar=true;
+        }
         $stmt->close();
+        return $validar;
     }
 }
