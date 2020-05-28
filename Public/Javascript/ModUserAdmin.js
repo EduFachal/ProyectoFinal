@@ -1,8 +1,6 @@
 var charge = window.onload;
 window.onload = function () {
-    if (charge) {
-        charge();
-    }
+
     var buttonsMod = document.getElementsByClassName("updateButton");
     var buttondsDel = document.getElementsByClassName("deleteButton");
     

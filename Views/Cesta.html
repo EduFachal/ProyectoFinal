@@ -14,13 +14,14 @@
   <link rel="stylesheet" type="text/css" href="../Public/Css/Perfil.css">
   <link rel="stylesheet" type="text/css" href="../Public/Css/Cesta.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald|Lato" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="../Public/Javascript/FunctionsPerfil.js"></script>
+  <script src="../Public/Javascript/FunctionsDeleteProductShoppingCart.js"></script>
 
 </head>
 
@@ -52,8 +53,8 @@
         </select>
     </div>
     <div class="precios">
-    <p>Impuestos (21%) -> </p><div id="impuestos">22222</div><br><br>
-    <p>Importe Total -> </p><div id="dineroTotal">22222</div>
+    <p>Impuestos (21%) -> </p><div id="impuestos">%%totalCostFreeTax%% €</div><br><br>
+    <p>Importe Total -> </p><div id="dineroTotal">%%totalCost%% €</div>
     </div>
     <button type="button" class="btn btn-lg btn-primary active" id="buttonCesta">Finalizar Compra</button>
     %%footer%%

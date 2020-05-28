@@ -5,9 +5,12 @@ window.onload = function () {
         charge();
     }
     document.getElementById("buttonProduct").addEventListener("click",this.getArticleJSON);
+    //document.addEventListener("click",closeFind);
 };
 
-
+function closeFind(){
+    document.getElementsByClassName("articlesListMenu").style.display="none";
+}
 
 function getArticleJSON() {
     var article =  document.getElementById("findProduct").value;
@@ -29,12 +32,13 @@ function getArticleJSON() {
 }
 function actualizarListado(jsonArticles) {
     console.log(jsonArticles);
-    htmlArticulos = ''
+    htmlArticulos = "<ul class='articlesListMenu'>";
     for (let index = 0; index < jsonArticles.length; index++) {
         const element = jsonArticles[index];
-        htmlArticulos += "<p onclick='redirigir(\""+ element.url + "\")'>"+element.nombre+"<img src='"+ element.urlImg+"'/></p>";
+        htmlArticulos += "<li onclick='redirigir(\""+ element.url + "\")'>"+element.nombre+"<img src='"+ element.urlImg+"'/></li>";
     }
-    document.getElementById('articulos').innerHTML = htmlArticulos;
+    htmlArticulos += '</ul>'
+    document.getElementById('articlesButtonFind').innerHTML = htmlArticulos;
 }
 function redirigir(url){
     window.location.href = url

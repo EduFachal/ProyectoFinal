@@ -1,5 +1,5 @@
 <?php
-
+include_once("../Models/DBModel/DBArticles.php");
 class Users extends DBConection{
     function __construct(){
         parent::__construct();
@@ -35,4 +35,34 @@ class Users extends DBConection{
     }
     return $facturas;
   }
+
+  public function getShoppingCart($arrayProducts){
+    $price;
+    $priceTotal=0;
+    $cart="";
+    $productName="";
+    $article = new DBArticles();
+    for ($i=0; $i < count($arrayProducts); $i++) { 
+        $price=$arrayProducts[$i]["lotProduct"]*$arrayProducts[$i]["productPrice"];
+        $priceTotal=$price+$priceTotal;
+        $productName = $article -> getNameArticleById($arrayProducts[$i]["idProducto"]);
+        $cart.="<tr><td>".$productName."</td>"
+            ."<td>".$arrayProducts[$i]["lotProduct"]."</td>"
+            ."<td>".$price."</td>"
+            ."<td><i class='fas fa-times deleteButton' data-id='".$arrayProducts[$i]["idProducto"]."'></td></tr>";
+    }
+    $arrayDataShoppingCart=[
+        "printDataProducts" => $cart,
+        "priceTotal" => $priceTotal];
+    return $arrayDataShoppingCart;
+  }
+  public function deleteProductShoppingCart($idProduct,$arrayProducts){
+      $newArrayProduct=[];
+     foreach ($arrayProducts as $key => $value) {
+         if($value["idProducto"]!=$idProduct){
+            $newArrayProduct[] = $value;
+         }
+     }
+     return $newArrayProduct;
+   }
 }

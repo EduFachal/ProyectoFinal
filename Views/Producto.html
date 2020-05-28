@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../Public/Javascript/FunctionsAddProductShoppingCart.js"></script>
 </head>
 <body>
     %%menu%%
@@ -20,12 +21,12 @@
       <img src="%%imagen%%" class="imageProduct">
       <div class="productDescript">
         <h2>%%nombre%%</h2>
-        <p> %%precio%% €</p>
+        <p id="valueProduct"> %%precio%% €</p>
         <div class="input-group mb-3" id="lot">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">CANTIDAD</span>
           </div>
-          <input type="text" class="form-control" placeholder="Nº de Unidades" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Nº de Unidades" aria-label="Username" aria-describedby="basic-addon1" id="quantity">
         </div>
         <!--
         <p>Talla</p>
@@ -41,7 +42,7 @@
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
           <label class="form-check-label" for="inlineRadio3">L</label>
         </div>-->
-        <button type="button" class="btn btn-info" id="buttonAddProduct">Añadir a la cesta</button>
+        <button type="button" class="btn btn-info" id="buttonAddProduct" data-id="%%idArticulo%%" >Añadir a la cesta</button>
       </div>
     </div>
     %%footer%%

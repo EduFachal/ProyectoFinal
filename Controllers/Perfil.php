@@ -29,7 +29,12 @@ $dataBill= $users->getFacturas($_SESSION["idUsuario"]);
 $reportBill = $users->stringFacturas($dataBill);
 
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
-$dataBillPrint = ["datosTabla" => $reportBill];
+$dataBillPrint = ["datosTabla" => $reportBill,
+                "tituloTabla" => "Facturas",
+                "primeraColumna" => "Id Factura",
+                "segundaColumna" => "Fecha",
+                "terceraColumna" => "Precio",
+                "cuartaColumna" => "Eliminar"];
 $reportBillHtml = $printer->createView("TablaFacturas",$dataBillPrint);
 
 $dataControllerPerfil["nombreFormularioCabecera"] = "Modificar Cuenta";

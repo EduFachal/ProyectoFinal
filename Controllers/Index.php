@@ -14,6 +14,9 @@ $menuPrint = new Menu();
 if($validate -> checkConnect()){
     $buttonProfile= $menuPrint -> getMenu(1);
     $dataControllerIndex["botonMenu"] = $buttonProfile;
+    if(isset($_SESSION["cesta"])){
+        $_SESSION["cesta"]=array();
+    }
 }else{
     $buttonProfile= $menuPrint -> getMenu(0);
     $dataControllerIndex["botonMenu"] = $buttonProfile;

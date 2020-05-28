@@ -25,13 +25,19 @@ $menuHtml = $printer->createView("Menu",$dataControllerCesta);
 
 //Funcion para sacar en un array las facturas pasandole el ID usuario -> Models/Funcion en Users.php
 $users = new Users();
-$dataBills= $users->getFacturas($_SESSION["idUsuario"]);
+//$dataBills= $users->getFacturas($_SESSION["cesta"]);
 
 //Funcion para convertir en un string el array de facturas -> Models/Users.php
-$reportBill = $users->stringFacturas($dataBills);
-
+$reportBill = $users->getShoppingCart($_SESSION["cesta"]);
+$totalPrice=$reportBill["priceTotal"];
+$totalPriceFreeTax = $totalPrice * 0.79;
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
-$datosPrintFacturas = ["datosTabla" => $reportBill];
+$datosPrintFacturas = ["datosTabla" => $reportBill["printDataProducts"],
+                "tituloTabla" => "Cesta compra",
+                "primeraColumna" => "Producto",
+                "segundaColumna" => "Cantidad",
+                "terceraColumna" => "Precio",
+                "cuartaColumna" => "Eliminar"];
 $reportBillHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
 
 $dataControllerCesta["idUsuario"]=$_SESSION["idUsuario"];
@@ -41,7 +47,9 @@ $footerHtml = $printer->createView("Footer",$dataControllerCesta);
 $model=[
     "menu" => $menuHtml,
     "pedido" =>$reportBillHtml,
-    "footer" => $footerHtml 
+    "footer" => $footerHtml,
+    "totalCostFreeTax" => $totalPriceFreeTax,
+    "totalCost" => $totalPrice
 ];
 
 // Funcion para pintar las vistas creadas en el Cesta.html

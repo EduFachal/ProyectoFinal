@@ -49,4 +49,37 @@ class DBArticles extends DBConection{
       return $arrayDatos;
       
     }
+
+    // Funcion para sacar el nombre del articulo pasandole su id
+    public function getNameArticleById($id){
+      $con= $this->conn;
+      $num = (int) $id;
+      $stmt = $con->prepare("SELECT nombre FROM articulos WHERE idArticulo=?");
+      $stmt->bind_param("i",$num);
+		  $stmt -> execute();
+      $result = $stmt->get_result();  
+      $nameData="";
+		  if($myrow = $result->fetch_assoc()) {
+          $nameData = $myrow["nombre"];
+      }
+      $stmt->free_result();
+      $stmt->close();
+      return $nameData;
+      
+    }
+
+    // Funcion para añadir a la cesta un producto en el caso de que ya se haya añadido
+    public function addShopCart($arrayShopCart, $newAddProduct){
+      $idProduct=$newAddProduct["idProducto"];
+      foreach ($arrayShopCart as $key => $value) {
+        if($value["idProducto"] == $idProduct){
+            $arrayShopCart[$key]["lotProduct"] = $value["lotProduct"]+$newAddProduct["lotProduct"];
+            return $arrayShopCart;
+        }
+      }
+
+      $arrayShopCart[] = $newAddProduct;
+      
+      return $arrayShopCart;
+    }
 }

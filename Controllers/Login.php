@@ -19,6 +19,7 @@ if (isset($_POST['enviar'])) {
 	if($valueRole===0){	// Admin
 		header("Location: ../Controllers/Admin.php");
 	}else if($valueRole===1){	//Users
+		$_SESSION["cesta"]=array();
 		header("Location: ../Controllers/Index.php");	
 	}else if($valueRole==null || $valueRole==""){
 		//Variables para el repintado en el login

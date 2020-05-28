@@ -69,6 +69,7 @@
             idFactura int AUTO_INCREMENT,
             fecha varchar(80),
             precio decimal(10,2),
+            tiendaDestino varchar(60),
             idCliente_datos int,
             CONSTRAINT PK_USERS PRIMARY KEY (idFactura),
             CONSTRAINT FK_FACTURADATACLIENT_IDCLIENT FOREIGN KEY (idCliente_datos)

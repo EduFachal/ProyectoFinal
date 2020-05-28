@@ -16,11 +16,10 @@ class Admin extends DBConection{
         $stmt -> execute();
         $result = $stmt->get_result();  
         $arr="";
-        // ."<td><form method='POST' action='../Controllers/Admin.php'><input type='submit' value='".$myrow["idUsuario"]."' name='eliminar' class='deleteButton'></form></td></tr>";
         while($myrow = $result->fetch_assoc()) {
             $arr.="<tr><td>".$myrow["idUsuario"]."</td>"
                 ."<td>".$myrow["usuario"]."</td>"
-                ."<td><i class='fas fa-times updateButton' data-id='".$myrow["idUsuario"]."'></td>"
+                ."<td><i class='fas fa-user-edit updateButton' data-id='".$myrow["idUsuario"]."'></td>"
                 ."<td><i class='fas fa-times deleteButton' data-id='".$myrow["idUsuario"]."'></td></tr>";
         }
         $stmt->close();
@@ -62,6 +61,7 @@ class Admin extends DBConection{
         return $val;
     }
 
+    // Funcion para rescatar el idUsuario de un user, pasandole su nick por parametro
     public function getUser($user){
         $con = $this ->conn;
         $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");
@@ -76,6 +76,7 @@ class Admin extends DBConection{
         return $arr;
     }
 
+    // Funcion dinamica para modificar user en funcion de los parametros que le pases en el formulario
     public function updateUser($cadena){
         $con = $this ->conn;
         $sql ="UPDATE usuarios, datosclientes SET ";

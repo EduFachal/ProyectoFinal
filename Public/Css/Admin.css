@@ -11,10 +11,9 @@ body{
 .logo_link{
     margin: 3%;
 }
-.modifyButton{
-    border: none;
-    background: url('../Img/x-icon.png') no-repeat top left;
-    padding: 2px 8px;
+.updateButton{
+    color: burlywood;
+    margin-left: 10%;
 }
 #tableAdmin{
     overflow-y: scroll;

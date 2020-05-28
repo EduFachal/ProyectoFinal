@@ -46,6 +46,7 @@ $model=[
     "menu" => $menuHtml,
     'nombre' => $articleData['nombre'],
     'precio' => $articleData['precio'],
+    'idArticulo'=>$articleData['idArticulo'],
     'imagen' => '../Public/Img/Articles/'.$raiz.'/'.$articleData['idArticulo'].'.jpg',
     'footer' => $footerHtml
 ];
