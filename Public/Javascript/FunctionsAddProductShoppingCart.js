@@ -1,6 +1,7 @@
 // Funcion para pisar el onload previo si hubiera
 var charge = window.onload;
 window.onload = function () {
+    
     document.getElementById("buttonAddProduct").addEventListener("click",this.addProductSession);
 };
 
@@ -33,3 +34,4 @@ function addProductSession() {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(data));
 }
+

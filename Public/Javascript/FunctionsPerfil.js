@@ -1,8 +1,6 @@
 var charge = window.onload;
 window.onload = function () {
-    if (charge) {
-        charge();
-    }
+ 
     document.getElementById("tablaPedidos").addEventListener("click", getFacturas);
     document.getElementById("formularioModificar").addEventListener("click", getFormCuenta);
     document.getElementById("modificar").addEventListener("click", modificarCuentaUsuario);

@@ -18,4 +18,5 @@ if($validateAdd -> checkConnect()){
   
     $resp["status"]=true;
 }
+
 echo json_encode($resp);

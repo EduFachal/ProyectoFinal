@@ -82,4 +82,22 @@ class DBArticles extends DBConection{
       
       return $arrayShopCart;
     }
+
+    public function getAllArticles(){
+
+      $con= $this->conn;
+      $stmt = $con->prepare("SELECT idArticulo,stock FROM articulos");
+		  $stmt -> execute();
+      $result = $stmt->get_result();  
+      $arrayDatos=[];
+		  while($myrow = $result->fetch_assoc()) {
+          $articleArray= [];
+          $articleArray["idArticulo"] = $myrow["idArticulo"];
+          $articleArray["stock"] = $myrow["stock"];
+          $arrayDatos[]=$articleArray;
+      }
+      $stmt->free_result();
+      $stmt->close();
+      return $arrayDatos;
+    }
 }

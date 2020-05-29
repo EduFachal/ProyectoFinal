@@ -30,7 +30,7 @@
     <div id="resultadoFactura">%%pedido%%</div>
     <div class="form-group tienda">
         <label for="sel1">Tienda de destino:</label>
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="selectShop">
             <option selected="true" disabled="disabled">Seleccione la tienda a elegir...</option>
             <optgroup label="Norte">
                 <option>Alcobendas</option>
@@ -53,8 +53,8 @@
         </select>
     </div>
     <div class="precios">
-    <p>Impuestos (21%) -> </p><div id="impuestos">%%totalCostFreeTax%% €</div><br><br>
-    <p>Importe Total -> </p><div id="dineroTotal">%%totalCost%% €</div>
+    <p>Impuestos (21%) -> </p><div id="impuestos"></div><br><br>
+    <p>Importe Total -> </p><div id="dineroTotal"></div>
     </div>
     <button type="button" class="btn btn-lg btn-primary active" id="buttonCesta">Finalizar Compra</button>
     %%footer%%

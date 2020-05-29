@@ -47,9 +47,7 @@ $footerHtml = $printer->createView("Footer",$dataControllerCesta);
 $model=[
     "menu" => $menuHtml,
     "pedido" =>$reportBillHtml,
-    "footer" => $footerHtml,
-    "totalCostFreeTax" => $totalPriceFreeTax,
-    "totalCost" => $totalPrice
+    "footer" => $footerHtml
 ];
 
 // Funcion para pintar las vistas creadas en el Cesta.html
