@@ -45,25 +45,36 @@ class Offer{
     //Funcion para  la ropa de la BBDD
     function printClothe($offersPrint,$sentence){
         $ruta="";
+        $name="";
         switch($sentence){
                 case "hombre":
-                $ruta="Man";
+                    $ruta="Man";
+                    $name="Hombre";
                 break;
                 case "mujer":
                     $ruta="Woman";
+                    $name="mujer";
                 break;
                 case "kids":
                     $ruta="Kids";
+                    $name="infantil";
                 break;
         }
-        $htmlOffer="<ul class='offerList'>";
+        $htmlOffer="<div class='headClothes'>CAMISETAS  ".strtoupper($name)."</div><ul class='offerList'>";
+
         for ($i=0; $i <count($offersPrint) ; $i++) { 
                 $htmlOffer.="
                 <li>
                    <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."'>
                    <img src='../Public/Img/Articles/".$ruta."/".$offersPrint[$i]['idArticulo'].".jpg'>
                    <p>".$offersPrint[$i]['nombre']."</p><p>".$offersPrint[$i]['precio']."</p></a>
-                </li>";   
+                </li>";
+                if($i==2){
+                    $htmlOffer.="<div class='headClothes'>PANTALONES  ".strtoupper($name)."</div>";
+                }
+                if($i==5){
+                    $htmlOffer.="<div class='headClothes'>ZAPATILLAS  ".strtoupper($name)."</div>";
+                }
         }
         $htmlOffer.="</ul>";
         return $htmlOffer;

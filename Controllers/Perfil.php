@@ -34,7 +34,7 @@ $dataBillPrint = ["datosTabla" => $reportBill,
                 "primeraColumna" => "Id Factura",
                 "segundaColumna" => "Fecha",
                 "terceraColumna" => "Precio",
-                "cuartaColumna" => "Hay que ver"];
+                "cuartaColumna" => "Descargar factura"];
 $reportBillHtml = $printer->createView("TablaFacturas",$dataBillPrint);
 
 $dataControllerPerfil["nombreFormularioCabecera"] = "Modificar Cuenta";

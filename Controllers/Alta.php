@@ -4,7 +4,7 @@ include_once("../Models/Menu.php");
 include_once("../Models/Offer.php");
 include_once("../Models/Validate.php");
 include_once("../Models/Admin.php");
-
+include_once("../Models/SendEmail.php");
 $validate = new Validate();
 $menuPrint = new Menu();
 
@@ -38,6 +38,7 @@ if(isset($_POST['registrar'])){
         "nacimiento" => $_POST['nacimiento']
     );
     $register -> aniadirCliente($arrayDataClient);  
+    sendMailDefault();
 }
 
 // Funcion para crear la vista del formulario pasandole los nombres necesarios para la cabecera y el boton

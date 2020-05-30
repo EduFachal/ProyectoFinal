@@ -46,13 +46,21 @@ body h2{
 .offerList img{
     width: 80%;
     margin-top: 10%;
-    margin-left: 9%;
+    margin-left: 15%;
 }
 .offerList p{
     margin-top: 6%;
     text-align: center;
     font-size: 1.5em;
     font-family: 'Lato';
+}
+
+.headClothes{
+    font-size: 3em;
+    font-family: 'Oswald';
+    text-align: center;
+    margin-top:8%;
+    margin-bottom:4%;
 }
 
 /* 

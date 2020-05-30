@@ -13,9 +13,9 @@ footer{
     font-family: 'Lato';
 }
 
-footer ul li{
+.col-sm-5 ul li{
     margin-top: 17%;
-    margin-right: -15%;
+    margin-right: 12%;
     list-style: none;
 }
 

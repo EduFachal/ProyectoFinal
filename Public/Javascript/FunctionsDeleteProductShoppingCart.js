@@ -23,9 +23,9 @@ function deleteProduct(e) {
                 var resp = JSON.parse(this.responseText)
                 if (resp.status) {
                     element.remove()
-                    //document.getElementById("impuestos").innerHTML="";
+                  //  document.getElementById("impuestos").innerHTML="";
                    // document.getElementById("dineroTotal").innerHTML="";
-                    this.calculateTotalPriceShopCart();
+                    calculateTotalPriceShopCart();
                 }
                 console.log(this.responseText);
             }
@@ -67,6 +67,7 @@ function calculateTotalPriceShopCart(){
     var totalPrice=0;
     for (let index = 0; index < prices.length; index++) {
         totalPrice=(parseFloat(totalPrice)+parseFloat(prices[index].innerText));
+        console.log(index,totalPrice)
     }
     document.getElementById("impuestos").innerHTML=(parseFloat(totalPrice)*0.79).toFixed(2);
     document.getElementById("dineroTotal").innerHTML=parseFloat(totalPrice).toFixed(2);

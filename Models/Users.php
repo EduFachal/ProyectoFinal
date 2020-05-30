@@ -31,7 +31,8 @@ class Users extends DBConection{
     for ($i=0; $i < count($arrayFacturas); $i++) { 
         $facturas.="<tr><td>".$arrayFacturas[$i]["idFactura"]."</td>"
             ."<td>".$arrayFacturas[$i]["fecha"]."</td>"
-            ."<td><strong>".$arrayFacturas[$i]["precio"]." €</strong></td></tr>";
+            ."<td><strong>".$arrayFacturas[$i]["precio"]." €</strong></td>
+            .<td><i class='fas fa-file-invoice-dollar' id='imageBill'></i></td></tr>";
     }
     return $facturas;
   }

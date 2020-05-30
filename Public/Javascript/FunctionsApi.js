@@ -4,12 +4,17 @@ window.onload = function () {
     if (charge) {
         charge();
     }
+    document.getElementById("backgroundOpacity").style.display="none";
     document.getElementById("buttonProduct").addEventListener("click",this.getArticleJSON);
-    //document.addEventListener("click",closeFind);
+    document.addEventListener("click",closeFind);
 };
 
 function closeFind(){
-    document.getElementsByClassName("articlesListMenu").style.display="none";
+    document.getElementById("backgroundOpacity").style.display="none";
+    if(document.getElementsByClassName("articlesListMenu")[0]){
+        document.getElementsByClassName("articlesListMenu")[0].style.display="none";
+    }
+    
 }
 
 function getArticleJSON() {
@@ -31,8 +36,9 @@ function getArticleJSON() {
     
 }
 function actualizarListado(jsonArticles) {
-    console.log(jsonArticles);
-    htmlArticulos = "<ul class='articlesListMenu'>";
+    document.getElementById("backgroundOpacity").style.display="block";
+    //co1nsole.log(jsonArticles);
+    htmlArticulos = "<ul class='articlesListMenu'><h3>Elementos encontrados: </h3>";
     for (let index = 0; index < jsonArticles.length; index++) {
         const element = jsonArticles[index];
         htmlArticulos += "<li onclick='redirigir(\""+ element.url + "\")'>"+element.nombre+"<img src='"+ element.urlImg+"'/></li>";
