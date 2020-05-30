@@ -49,7 +49,8 @@ function saveAndCheckOut(e){
             if (this.readyState === 4) {
                 var resp = JSON.parse(this.responseText)
                 if (resp.status) {
-                    window.alert("Exito en la compra!! Hasta pronto!!")
+                    window.alert("Exito en la compra!! Hasta pronto!!");
+                    window.location.href="../Controllers/Index.php";
                 }
                 console.log(this.responseText);
             }

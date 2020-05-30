@@ -31,7 +31,7 @@ class Users extends DBConection{
     for ($i=0; $i < count($arrayFacturas); $i++) { 
         $facturas.="<tr><td>".$arrayFacturas[$i]["idFactura"]."</td>"
             ."<td>".$arrayFacturas[$i]["fecha"]."</td>"
-            ."<td>".$arrayFacturas[$i]["precio"]."</td></tr>";
+            ."<td><strong>".$arrayFacturas[$i]["precio"]." €</strong></td></tr>";
     }
     return $facturas;
   }
@@ -75,8 +75,7 @@ class Users extends DBConection{
         $validate=false;
         // Comprueba si hay stock para poder hacer la operacion
         $validate=$this->checkStock($data);
-        print_r($validate);
-        /*if($validate){
+        if($validate){
             //Sacar la fecha del momento del dia
             $hoy = getdate();
             $fecha =$hoy['mday']."/".$hoy["mon"]."/".$hoy["year"];
@@ -92,7 +91,10 @@ class Users extends DBConection{
                 foreach ($data as $key => $value) {
                     // Va introduciendo cada uno de los articulos correspondientes
                     $stmt = $con->prepare("INSERT INTO pedidos (unidades,precioTotal,idFactura_fact,idArticulo_art) VALUES (?,?,?,?)");
-                    $calculatePrice = variant_mul($value["lotProduct"],$value["productPrice"]);
+                   // echo("//////".$value["lotProduct"]);
+            //   echo("//////".$value["productPrice"]);
+                    $calculatePrice = (int)$value["lotProduct"]*$value["productPrice"];
+                   // echo "///////////".$calculatePrice;
                     $stmt->bind_param("ssii",$value["lotProduct"],$calculatePrice,$intIdFactura,$value["idProducto"]);
                     $stmt->execute();
                     $stmt->close(); 
@@ -100,16 +102,16 @@ class Users extends DBConection{
                     $endStock = $stockDbArticle - $value["lotProduct"];
                     $intEndStock= (int) $endStock;
                     if($intEndStock>-1){
-                        $stmt = $con->prepare("UPDATE articulos SET stock=?");
-                        $stmt->bind_param("i",$intEndStock);
+                        $stmt = $con->prepare("UPDATE articulos SET stock=? WHERE idArticulo=?");
+                        $stmt->bind_param("ii",$intEndStock,$value["idProducto"]);
                         if($stmt ->execute()){
                             $validate=true;
                         }
         				$stmt->close();
                     }  
                 }           
-            }
-        } */
+            } 
+        }
         return $validate;
    }
 
@@ -147,15 +149,11 @@ class Users extends DBConection{
         $articles = new DBArticles();
         $allArticles = $articles -> getAllArticles();
         $val=false;
-      //  print_r($arrayDataProducts);
-      //  print_r($allArticles);
         foreach ($arrayDataProducts as $key => $value) {
             for ($i=0; $i <count($allArticles) ; $i++) { 
-                //echo ("-------Todos los articulos/////////".$allArticles[$i]["idArticulo"]);
-                print_r("---------Productos que meter////////".$value["idProducto"]);
-             //  if($allArticles["idArticulo"]===$value["idProducto"] && $value["lotProduct"]<=$allArticles["stock"]){
-             //      $val=true;
-            //   }
+               if($allArticles[$i]["idArticulo"]==$value["idProducto"] && $value["lotProduct"]<=$allArticles[$i]["stock"]){
+                   $val=true;
+               }
             }
         }
         return $val;

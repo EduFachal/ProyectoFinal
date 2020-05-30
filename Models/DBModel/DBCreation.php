@@ -2,7 +2,7 @@
 
     //Establece la conexion a la base de datos
     $con = new mysqli("localhost","root","","");
-  /*
+  
    if($con==true){
 
         if(!$con->query("CREATE DATABASE IF NOT EXISTS proyecto") ||
@@ -152,4 +152,3 @@
 
         $connex->query($sql);
     }
-*/

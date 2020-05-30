@@ -8,6 +8,7 @@ $resp=["status" => false];
 if(count($arrayData)>0){
     $addDataDBPurchase = new Users();
     $resp["status"] = $addDataDBPurchase-> finishPurchase($arrayData["shopDestiny"],$arrayData["totalPrice"],$_SESSION["cesta"],$_SESSION["idUsuario"]);
+    $_SESSION["cesta"]=[];
 }
 
 echo json_encode($resp);
