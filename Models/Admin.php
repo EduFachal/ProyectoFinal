@@ -104,7 +104,7 @@ class Admin extends DBConection{
         }
         $keys = substr($keys,0,-1);
         $idUser=intval($params[count($params)-1]);
-        $sql = $sql.$keys." WHERE usuarios.idUsuario=?";
+        $sql = $sql.$keys." WHERE datosclientes.idUsuario_user=?";
         $stmt = $con->prepare($sql);
         $params[count($params)-1]= $idUser;
         call_user_func_array(array($stmt,"bind_param"), $params);
@@ -112,6 +112,7 @@ class Admin extends DBConection{
         if($stmt->execute()){
             $validar=true;
         }
+
         $stmt->close();
         return $validar;
     }

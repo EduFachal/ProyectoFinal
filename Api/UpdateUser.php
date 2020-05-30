@@ -7,6 +7,8 @@ $arrayData = (array) $data;
 $resp=["status" => false];
 if(count($arrayData)>0){
     $modificar = new Admin();
+   // print_r($arrayData);
+  //  die;
     $resp["status"] = $modificar-> updateUser($arrayData);
 }
 echo json_encode($resp);
