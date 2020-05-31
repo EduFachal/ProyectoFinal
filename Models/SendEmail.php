@@ -6,7 +6,8 @@ include_once('../Models/PHPMailer/src/SMTP.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function sendMail($from,$to,$subejct,$body){
+class EMail{
+    public function sendMail($from,$to,$subejct,$body){
     
     $mail = new PHPMailer;
     
@@ -37,7 +38,7 @@ function sendMail($from,$to,$subejct,$body){
     }
 }
 
-function sendMailDefault(){
+public function sendMailDefault(){
     
     $mail = new PHPMailer;
     
@@ -68,4 +69,39 @@ function sendMailDefault(){
         
     }
 }
+
+public function sendMailValidateChangePassword($to){
+    
+    $mail = new PHPMailer;
+    
+    //Tell PHPMailer to use SMTP
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->Host = "smtp.gmail.com"; // SMTP a utilizar. Por ej. smtp.elserver.com
+    $mail->Username = "proyectofinaldawiessjdlc@gmail.com"; // Correo completo a utilizar
+    $mail->Password = "caca1991"; // Contraseña
+    $mail->Port = 587; // Puerto a utilizar
+    $mail->From = "proyectofinaldawiessjdlc@gmail.com"; // Desde donde enviamos (Para mostrar)
+    $mail->FromName = "EMOP Tienda de Deportes";
+    $mail->AddAddress($to); // Esta es la dirección a donde enviamos
+    
+    $mail->IsHTML(true); // El correo se envía como HTML
+    $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
+    $body = "<p style='font-size:2em'>Muchas gracias por ponerse en contacto para recuperar su contraseña<br />";
+    $body .= "Por favor, entre en este link para guardar la nueva<br>Esperemos que este todo de su agrado</p><br><br>";
+    $body .="<img src='../Public/Img/fav-ico_nofondo_2.png'>";
+    $mail->Body = $body; // Mensaje a enviar
+    $mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // Texto sin html
+    $validate = $mail->Send(); // Envía el correo.
+    
+    if($validate){
+    return true;
+    }else{
+        return false;
+        
+    }
+}
+}
+
+
  

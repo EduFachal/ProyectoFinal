@@ -10,9 +10,6 @@ class Menu {
         'cesta' => ''
     ];
 
-    function __construct(){
-        
-    }
     public function selection( $selectionName ){
         foreach ($this->menusRoutes as $key => $value) {
             if(strtoupper($key) == strtoupper($selectionName) ){

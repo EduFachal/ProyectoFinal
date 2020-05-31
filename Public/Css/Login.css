@@ -72,6 +72,55 @@
 /* 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
                       
+                            CAMBIAR CONTRASEÑA
+                   
+////////////////////////////////////////////////////////////////////////////////////////////////////                        
+*/
+#buttonPass{
+    background-color: black;
+    border: 0;
+}
+#buttonPass:focus{
+    outline: none;
+}
+
+#formNewPass{
+    width: 50%;
+    font-family: 'Lato';
+    font-size: 1.4em;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    height: 100%;
+    text-align: center;
+    padding: 3.5%;
+    border: solid white 1px;
+    border-radius: 10%;
+    margin-left: 22%;
+}
+.col input{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#buttonNewPass{
+    width: 30%;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 35%;
+}
+#backLogin{
+    margin-top: 15%;
+    margin-left: 45%;
+    text-align: center;
+}
+
+#backIndex{
+    width: 30%;
+    margin-top: 15%;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+                      
                     FOOTER DEL LOGIN
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        

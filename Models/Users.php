@@ -70,8 +70,9 @@ class Users extends DBConection{
      return $newArrayProduct;
    }
 
+   // Función para validar la compra del usuario y actualizar los datos de Stock del producto
    public function finishPurchase($shop,$price,$data,$user){
-      // print_r($data);
+
         $con=$this ->conn;
         $validate=false;
         // Comprueba si hay stock para poder hacer la operacion
@@ -178,6 +179,20 @@ class Users extends DBConection{
         }
         $stmt->close();
         return $value;  
+    }
+
+    public function getEmail($user){
+        $con = $this ->conn;
+        $stmt = $con ->prepare("SELECT email FROM usuarios, datosclientes WHERE datosclientes.idUsuario_user=usuarios.idUsuario AND usuarios.usuario=?");
+        $stmt->bind_param("s",$user);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $value="";
+        if($myrow = $result->fetch_assoc()) {
+            $value=$myrow["email"];
+        }
+        $stmt->close();
+        return $value; 
     }
 }
 

@@ -7,6 +7,7 @@ include_once("../Models/Admin.php");
 include_once("../Models/SendEmail.php");
 $validate = new Validate();
 $menuPrint = new Menu();
+$mail = new EMail();
 
 // Funcion para comprobar si hay usuario logeado y pintar los botones en el menu de las acciones a realizar -> Models/Validate.php
 $dataControllerAlta = $menuPrint-> selection("home");
@@ -38,7 +39,7 @@ if(isset($_POST['registrar'])){
         "nacimiento" => $_POST['nacimiento']
     );
     $register -> aniadirCliente($arrayDataClient);  
-    sendMailDefault();
+    $mail-> sendMailDefault();
 }
 
 // Funcion para crear la vista del formulario pasandole los nombres necesarios para la cabecera y el boton

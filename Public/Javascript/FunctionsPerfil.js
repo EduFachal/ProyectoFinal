@@ -1,5 +1,3 @@
-var charge = window.onload;
-
 // Funciones de evento asociados al boton de facturas, modificar cuenta y para mostrar una de las dos acciones
 window.onload = function () {
 

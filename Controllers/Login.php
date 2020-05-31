@@ -8,7 +8,7 @@ $nameValue="";
 $passValue="";
 
 // Funcion para loguearte en la web, ademas guarda el rol y el idUsuario en Sesion -> Models/Validate.php
-if (isset($_POST['enviar'])) {  
+if (isset($_POST['enviar'])) { 
 	$role = new Validate();
 	//Comprueba si existe el usuario
 	$valueRole = $role->comprobar_usuario($_POST['usuario'], $_POST['clave']);
@@ -17,9 +17,11 @@ if (isset($_POST['enviar'])) {
 	$_SESSION['idUsuario']=$idUser;
 	$_SESSION['rol']=$valueRole;
 	if($valueRole===0){	// Admin
+		$tryEnter="";
 		header("Location: ../Controllers/Admin.php");
 	}else if($valueRole===1){	//Users
 		$_SESSION["cesta"]=array();
+		$tryEnter="";
 		header("Location: ../Controllers/Index.php");	
 	}else if($valueRole==null || $valueRole==""){
 		//Variables para el repintado en el login

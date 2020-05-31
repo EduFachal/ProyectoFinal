@@ -17,7 +17,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+  <script src="../Public/Javascript/FunctionsLogin.js"></script>
 
 </head>
 
@@ -45,13 +45,45 @@
             <input type="password" class="form-control form-control-sm" value="%%pass%%" id="exampleInputPassword1"
               name="clave">
           </div><br>
+          <button type="button" class="btn btn-lg btn-primary active" id="buttonPass" 
+          longdesc="Abrir formulario, cambiar contraseña">¿Olvido su contraseña?</button><br><br><br>
           <a id="link_alta" href="../Controllers/Alta.php"
             longdesc="Boton para poder darse de alta y rellenar formulario con sus datos principales">¿Desea darse de
             alta?</a><br><br><br>
           <button type="submit" class="btn btn-primary" name="enviar"
             longdesc="Boton para poder loguearse como usuario de la pagina">Enviar</button>
         </form>
+        <button type="button" class="btn btn-lg btn-danger active" id="backIndex"
+          longdesc="Salir del formulario de login">Salir</button>
       </div>
+    </div>
+
+    <!-- Formulario para recuperar contraseña del usuario-->
+    <div class="container" id="formNewPass">
+      <h2>Modificar Contraseña</h2>
+      <p>Formulario para modificar la contraseña:
+      <div id="usuarioModificarDatos"></div>
+      </p>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="usuario" placeholder="Introduzca Usuario" name="usuario">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="password" class="form-control" id="email" placeholder="Introduzca nueva contraseña" name="pass">
+        </div>
+        <div class="col">
+          <input type="password" class="form-control" placeholder="Repita nueva contraseña" name="pass-rep">
+        </div>
+      </div>
+      <div class="row">
+          <input type="button" class="form-control" id="buttonNewPass" value="Enviar solicitud">
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-lg btn-primary active" id="backLogin"
+        longdesc="Volver al formulario de login">Volver</button>
+    </div>
     </div>
   </div>
 
