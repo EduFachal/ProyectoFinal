@@ -37,6 +37,21 @@ $dataBillPrint = ["datosTabla" => $reportBill,
                 "cuartaColumna" => "Descargar factura"];
 $reportBillHtml = $printer->createView("TablaFacturas",$dataBillPrint);
 
+//Rescatamos todos los valores del usuario para que se pinten en la modificación del usuario
+$valuesUser = $users -> getValuesUser($_SESSION["idUsuario"]);
+
+$dataControllerPerfil=[
+    "userName"=> $valuesUser["usuario"],
+    "name"=> $valuesUser["nombre"],
+    "firstName"=> $valuesUser["apellidos"],
+    "userEmail"=> $valuesUser["email"],
+    "address"=> $valuesUser["direccion"],
+    "cp"=> $valuesUser["codigoPostal"],
+    "local"=> $valuesUser["localidad"],
+    "province"=> $valuesUser["provincia"],
+    "phoneNumber"=> $valuesUser["telefono"],
+    "birthDay"=> $valuesUser["fechaNacimiento"]
+];
 $dataControllerPerfil["nombreFormularioCabecera"] = "Modificar Cuenta";
 $dataControllerPerfil["nombreFormularioBoton"] = "Modificar";
 $dataControllerPerfil["idUsuario"]=$_SESSION["idUsuario"];

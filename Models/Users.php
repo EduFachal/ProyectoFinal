@@ -194,5 +194,30 @@ class Users extends DBConection{
         $stmt->close();
         return $value; 
     }
+
+    public function getValuesUser($idUser){
+        $con = $this ->conn;
+        $intId= (int) $idUser;
+        $stmt = $con ->prepare("SELECT usuario,nombre,apellidos,fechaNacimiento,telefono,email,direccion,codigoPostal,localidad,provincia FROM usuarios, datosclientes WHERE datosclientes.idUsuario_user=usuarios.idUsuario AND datosclientes.idUsuario_user=?");
+        $stmt->bind_param("i",$intId);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $value=[];
+        if($myrow = $result->fetch_assoc()) {
+            $value=[
+                "usuario" => $myrow["usuario"],
+                "nombre" => $myrow["nombre"],
+                "apellidos" => $myrow["apellidos"],
+                "fechaNacimiento" => $myrow["fechaNacimiento"],
+                "telefono" => $myrow["telefono"],
+                "email" => $myrow["email"],
+                "direccion" => $myrow["direccion"],
+                "codigoPostal" => $myrow["codigoPostal"],
+                "localidad" => $myrow["localidad"],
+                "provincia" => $myrow["provincia"]];
+        }
+        $stmt->close();
+        return $value; 
+    }
 }
 
