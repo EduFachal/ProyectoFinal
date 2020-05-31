@@ -1,5 +1,5 @@
 <?php
-
+// Funciones para pintar las vistas en los controllers
 class printHtml
 {
     public function printView($viewName , $model ){

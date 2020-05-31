@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Alta</title>
+  <title>Administrador</title>
   <link rel="stylesheet" type="text/css" href="../Public/Css/Admin.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald|Lato" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -21,48 +21,54 @@
 </head>
 
 <body>
-    <a class="logo_link" href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png"></a>
+  <!-- Link para ir la pagina principal, Index-->
+  <a class="logo_link" href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png"
+      alt="Logo de la pagina" longdesc="Link para ir a la pagina princial, Index"></a>
 
-    <div class="container">
-      <h2>Cuentas Usuarios</h2><br><br>
-      <table class="table" id="tableAdmin">
-        <thead class="thead-dark">
-          <tr>
-            <th>Id Usuario</th>
-            <th>Usuario</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          %%valores%%
-        </tbody>
-      </table>
-    </div>
+  <!-- Tabla que muestra todos los usuarios de la pagina, se pueden modificar y eliminar-->
+  <div class="container">
+    <h2>Cuentas Usuarios</h2><br><br>
+    <table class="table" id="tableAdmin">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id Usuario</th>
+          <th>Usuario</th>
+          <th>Modificar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        %%valores%%
+      </tbody>
+    </table>
+  </div>
 
-    <div class="container" id="formUpdate">
-      <h2>Modificar Usuario</h2>
-      <p>Formulario para modificar el usuario:<div id="usuarioModificarDatos"></div></p>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" id="usuario" placeholder="Introduzca Usuario" name="usuario">
-          </div>
-          <div class="col">
-            <input type="password" class="form-control" placeholder="Introduzca Password" name="pass">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <input type="email" class="form-control" id="email" placeholder="Introduzca Email" name="email">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Introduzca numero teléfono" name="telefono">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Introduzca dirección" name="direccion">
-          </div>
-        </div>
+  <!-- Formulario para modificar un usuario de la pagina, es una función dinámica, se puede cambiar cualquier campo-->
+  <div class="container" id="formUpdate">
+    <h2>Modificar Usuario</h2>
+    <p>Formulario para modificar el usuario:
+    <div id="usuarioModificarDatos"></div>
+    </p>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" id="usuario" placeholder="Introduzca Usuario" name="usuario">
+      </div>
+      <div class="col">
+        <input type="password" class="form-control" placeholder="Introduzca Password" name="pass">
+      </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <input type="email" class="form-control" id="email" placeholder="Introduzca Email" name="email">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Introduzca numero teléfono" name="telefono">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Introduzca dirección" name="direccion">
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -59,7 +59,7 @@ nav{
 #linkPerfil{
     width: 94px;
     height: 98px;
-    margin-right: 17px;
+    margin-right: 15%;
     background-color: white;
     border: 0;
 }
@@ -75,8 +75,10 @@ nav{
     width: 600px;
 }
 
+
 #articlesButtonFind{
     width: 100%;
+    
 }
 .articlesListMenu{
     

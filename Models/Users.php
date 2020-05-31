@@ -116,6 +116,7 @@ class Users extends DBConection{
         return $validate;
    }
 
+   // Función para sacar el idCliente pasandole el idUsuario(String)
     public function getIdCliente($userId){
         $con = $this ->conn;
         $intId= (int) $userId;
@@ -131,6 +132,7 @@ class Users extends DBConection{
         return $value;
     }
 
+    // Función para sacar el idFactura psandole el idUsuario(String)
     public function idFactura($userId){
         $con = $this ->conn;
         $intId= (int) $userId;
@@ -146,21 +148,23 @@ class Users extends DBConection{
         return $value;
     }
 
+    // Función para comprobar si existe el producto deseado y si hay stock disponible, recibe un array con esos datos(String)
     public function checkStock($arrayDataProducts){
         $articles = new DBArticles();
         $allArticles = $articles -> getAllArticles();
-        $val=false;
+        $validate=false;
         foreach ($arrayDataProducts as $key => $value) {
             for ($i=0; $i <count($allArticles) ; $i++) { 
                if($allArticles[$i]["idArticulo"]==$value["idProducto"] && $value["lotProduct"]<=$allArticles[$i]["stock"]){
-                   $val=true;
+                   $validate=true;
                }
             }
         }
-        return $val;
+        return $validate;
         
     }
 
+    // Función para sacar el stock disponible de un articulo en particular, se le pasa su id(String) por paramentro 
     public function checkStockArticle($article){
         $con = $this ->conn;
         $intId= (int) $article;

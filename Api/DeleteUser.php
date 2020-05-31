@@ -1,4 +1,6 @@
 <?php
+/* PHP llamado desde ModelUserAdmin, recibe un iUsuario, lo busca en la base de datos y lo elimina 
+   si hay coincidencia */
 include_once("../Models/Admin.php");
 $data = json_decode( file_get_contents('php://input') );
 header('Content-Type: application/json');

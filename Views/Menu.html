@@ -5,46 +5,69 @@
 <script src="../Public/Javascript/FunctionsApi.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <link rel="stylesheet" type="text/css" href="../Public/Css/menu.css">
+<title>Menu de las paginas</title>
 
 <nav>
-    <div id="backgroundOpacity"></div>
-    <div class="d-flex justify-content-between" id="nav-top">
-        <a class="navbar-brand" href="../Controllers/Index.php" id="logo"></a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-4" type="search" id="findProduct" placeholder="Buscar producto..." aria-label="Search">
-            <button type="button" class="btn btn-info" id="buttonProduct" >
-                <span class="glyphicon glyphicon-search">  Buscar</span>
-            </button>
-            <div id="articlesButtonFind">
-            </div>
-        </form>
-        <div class="d-flex justify-content-end" id="links">
-           <a href="../Controllers/Cesta.php"><img src="../Public/Img/carrito.png" alt="Cesta de la compra"></a>
-           <!-- <a href="../Controllers/Login.php"><img src="../Public/Img/login.png"></a>-->
-           <div class="btn-group">
-            <div class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="linkPerfil">
-              <img src="../Public/Img/login.png" alt="Perfil" longdesc="Sin entrar, Inciar sesion o registrarse / Entrando, Perfil o salir de sesión">
-            </div>
-            <div class="dropdown-menu" id="logoPerfil">
-              %%botonMenu%%
-            </div>
-          </div>
-        </div> 
+  <!-- Menu principal de las paginas-->
+
+  <!-- Div para crear oscuridad cuando se utiliza el buscador principal -->
+  <div id="backgroundOpacity"></div>
+  <div class="d-flex justify-content-between" id="nav-top">
+
+    <!-- Logo de de la pagina, redirige al Index -->
+    <a class="navbar-brand" href="../Controllers/Index.php" id="logo" alt="logo de la página"
+      longdesc="redirige a la pagina principal"></a>
+
+    <!-- Buscador principal de la pagina, asocia la busqueda a la cadena que le mandes -->
+    <form class="form-inline">
+      <input class="form-control mr-sm-4" type="search" id="findProduct" placeholder="Buscar producto..."
+        aria-label="Search">
+      <button type="button" class="btn btn-info" id="buttonProduct" longdesc="Boton para la busqueda del producto">
+        <span class="glyphicon glyphicon-search"> Buscar</span>
+      </button>
+      <div id="articlesButtonFind">
+      </div>
+    </form>
+
+    <!-- Links a la pagina de la cesta y las distintas paginas del perfil -->
+    <div class="d-flex justify-content-end" id="links">
+
+      <!-- Link a la cesta de la compra -->
+      <a href="../Controllers/Cesta.php"><img src="../Public/Img/carrito.png" alt="Cesta de la compra"></a>
+      <div class="btn-group">
+
+        <!-- Link para ir las opciones del perfil-->
+        <div class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" id="linkPerfil">
+          <img src="../Public/Img/login.png" alt="Perfil"
+            longdesc="Sin entrar, Inciar sesion o registrarse / Entrando, Perfil o salir de sesión">
+        </div>
+
+        <!-- Opciones del perfil. Sin entrar, Inciar sesion o registrarse / Entrando, Perfil o salir de sesión -->
+        <div class="dropdown-menu" id="logoPerfil">
+          %%botonMenu%%
+        </div>
+      </div>
     </div>
- <div class="navbar navbar-expand-sm navbar-light bg-light">
-    
-  <div id="clothesMenu">
-    <ul class="navbar-nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=mujer">MUJER</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=hombre">HOMBRE</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=infantil">INFANTIL</a>
-      </li>        
-    </ul>
-</div>
-</div>
+  </div>
+
+  <!-- Menu de busque de la ropa segun el tipo, ya sea hombre, mujer o infantil-->
+  <div class="navbar navbar-expand-sm navbar-light bg-light">
+    <div id="clothesMenu">
+      <ul class="navbar-nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=mujer"
+            longdesc="Link para ir a la ropa de mujer">MUJER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=hombre"
+            longdesc="Link para ir a la ropa de hombre">HOMBRE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Controllers/TiposRopa.php?tipo=infantil"
+            longdesc="Link para ir a la ropa infantil">INFANTIL</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

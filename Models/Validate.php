@@ -59,7 +59,8 @@ public function getUser($user){
             header("Location: ../Controllers/Index.php");
         }
     }
-
+    
+    // Función para comprobar si el usuario conectado tiene rol asignado
     public function validateUser(){
         //Si no hay rol le echa
         if (!isset($_SESSION['rol'])){
@@ -67,11 +68,13 @@ public function getUser($user){
         }
     }
 
+    // Función para destruir la sesion
     public function destroySession(){
         session_destroy(); 
         header("Location: ../Controllers/Login.php");
     }
 
+    // Funcion para comprobar si el que está conectado es un usuario o no
     public function checkConnect(){
         if (isset($_SESSION['rol'])){
             return true;  

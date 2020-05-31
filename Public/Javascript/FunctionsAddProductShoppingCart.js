@@ -1,13 +1,13 @@
-// Funcion para pisar el onload previo si hubiera
-var charge = window.onload;
+// Función de evento asociado al boton añadir producto
 window.onload = function () {
-    
     document.getElementById("buttonAddProduct").addEventListener("click",this.addProductSession);
 };
 
-// Funcion con AJAX para añadir un producto a la cesta
+/* Funcion con AJAX para añadir un producto a la cesta, pasara un array con los distintos datos, ya sean cantidad(int),
+   el idProducto(int) y precio(int) para mandarselos al PHP AddShoppingCart, el cual los almacenera en la sesion del usuario.
+   Al finalizar la ejecución del PHP, redirigirá la pagina al Index
+*/
 function addProductSession() {
-    var xmlhttp = new XMLHttpRequest();
     var lotProduct = document.getElementById("quantity").value;
     var idProduct = document.getElementById("buttonAddProduct").getAttribute("data-id");
     var price = document.getElementById("valueProduct").innerText;

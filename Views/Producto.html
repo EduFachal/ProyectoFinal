@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto</title>
-    <link rel="stylesheet" type="text/css" href="../Public/Css/comun.css">
-    <link rel="stylesheet" type="text/css" href="../Public/Css/Footer.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../Public/Javascript/FunctionsAddProductShoppingCart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto</title>
+  <link rel="stylesheet" type="text/css" href="../Public/Css/comun.css">
+  <link rel="stylesheet" type="text/css" href="../Public/Css/Footer.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../Public/Javascript/FunctionsAddProductShoppingCart.js"></script>
 </head>
+
 <body>
-    %%menu%%
-    
-    <div class="container">
-      <img src="%%imagen%%" class="imageProduct">
-      <div class="productDescript">
-        <h2>%%nombre%%</h2>
-        <p id="valueProduct"> %%precio%% €</p>
-        <div class="input-group mb-3" id="lot">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">CANTIDAD</span>
-          </div>
-          <input type="text" class="form-control" placeholder="Nº de Unidades" aria-label="Username" aria-describedby="basic-addon1" id="quantity">
+
+  <!-- Header/Menu principal de la página-->
+  %%menu%%
+  <div class="container">
+
+    <!-- Segun el producto que sea, en el longdesc se asociará toda la información pertinente-->
+    <img src="%%imagen%%" class="imageProduct" alt="Producto para su compra"
+      longdesc="Descripcion del producto %%nombre%%">
+
+    <!--Información del producto, nombre, precio, cantidad, etc-->
+    <div class="productDescript">
+      <h2>%%nombre%%</h2>
+      <p id="valueProduct"> %%precio%% €</p>
+      <div class="input-group mb-3" id="lot">
+
+        <!-- Input para poder añadir la cantidad del producto deseada -->
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">CANTIDAD</span>
         </div>
-        <!--
+        <input type="text" class="form-control" placeholder="Nº de Unidades" aria-label="Username"
+          aria-describedby="basic-addon1" id="quantity">
+      </div>
+
+      <!-- Posible extra para un futuro, distitnos tallajes de ropa
         <p>Talla</p>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -42,9 +54,13 @@
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
           <label class="form-check-label" for="inlineRadio3">L</label>
         </div>-->
-        <button type="button" class="btn btn-info" id="buttonAddProduct" data-id="%%idArticulo%%" >Añadir a la cesta</button>
-      </div>
+      <button type="button" class="btn btn-info" id="buttonAddProduct" data-id="%%idArticulo%%"
+        longdesc="Boton para añadir a la cesta el producto">Añadir a la cesta</button>
     </div>
-    %%footer%%
+  </div>
+
+  <!-- Footer de la página -->
+  %%footer%%
 </body>
+
 </html>

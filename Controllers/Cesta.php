@@ -23,14 +23,10 @@ if($validate -> checkConnect()){
 $printer = new PrintHtml();
 $menuHtml = $printer->createView("Menu",$dataControllerCesta);
 
-//Funcion para sacar en un array las facturas pasandole el ID usuario -> Models/Funcion en Users.php
-$users = new Users();
-//$dataBills= $users->getFacturas($_SESSION["cesta"]);
-
 //Funcion para convertir en un string el array de facturas -> Models/Users.php
+$users = new Users();
 $reportBill = $users->getShoppingCart($_SESSION["cesta"]);
-$totalPrice=$reportBill["priceTotal"];
-$totalPriceFreeTax = $totalPrice * 0.79;
+
 //Creamos la vista de la tabla pasandole el string en un array a createView para despues pintarla en el perfil -> Models/PrintlHtml.php
 $datosPrintFacturas = ["datosTabla" => $reportBill["printDataProducts"],
                 "tituloTabla" => "Cesta compra",
@@ -40,6 +36,7 @@ $datosPrintFacturas = ["datosTabla" => $reportBill["printDataProducts"],
                 "cuartaColumna" => "Eliminar"];
 $reportBillHtml = $printer->createView("TablaFacturas",$datosPrintFacturas);
 
+//Almacena el idUsuario
 $dataControllerCesta["idUsuario"]=$_SESSION["idUsuario"];
 
 //Crear vista del footer para pintarlo en Cesta.html

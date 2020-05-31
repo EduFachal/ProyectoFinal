@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Alta</title>
+  <title>Login</title>
   <link rel="stylesheet" type="text/css" href="../Public/Css/Login.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -24,12 +24,16 @@
 <body>
 
   <div class="background_form_login">
-    <!--<a class="exit_link" href="../Controllers/Index.php"><img src="../Public/Img/redCrossX.png"></a>-->
-    <a href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png" id="logo_link"></a>
+
+    <!-- Logo de la pagina, redirige a la pagina principal, Index -->
+    <a href="../Controllers/Index.php"><img src="../Public/Img/fav-ico_nofondo.png" id="logo_link"
+        alt="Link a la pagina principal"></a>
     <div id="cover">
       <div id="cover-caption">
         <h2>Login</h2>
         <hr>
+
+        <!-- Formulario para loguearse en la pagina-->
         <form method="POST" action="../Controllers/Login.php">
           <div class="form-group">
             <label for="exampleInputEmail1">Usuario</label>
@@ -38,43 +42,48 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-sm" value="%%pass%%" id="exampleInputPassword1" name="clave">
+            <input type="password" class="form-control form-control-sm" value="%%pass%%" id="exampleInputPassword1"
+              name="clave">
           </div><br>
-          <a id="link_alta" href="../Controllers/Alta.php">¿Desea darse de alta?</a><br><br><br>
-          <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+          <a id="link_alta" href="../Controllers/Alta.php"
+            longdesc="Boton para poder darse de alta y rellenar formulario con sus datos principales">¿Desea darse de
+            alta?</a><br><br><br>
+          <button type="submit" class="btn btn-primary" name="enviar"
+            longdesc="Boton para poder loguearse como usuario de la pagina">Enviar</button>
         </form>
       </div>
     </div>
   </div>
 
+  <!-- Footer de la página -->
   <footer class="page-footer font-small blue pt-4">
     <div class="container-fluid text-center text-md-left" id="textoFooter">
-        <div class="col-sm-7">
-          <p>Dirección:<br><br>
-            Calle San Juan de la Cruz, s/n <br><br>
-            Pozuelo de Alarcón, Madrid <br><br>
-            Telefono <br><br>
-            (+34) 666 55 44 33 <br><br>
-            Correo electrónico <br><br>
-            ...@gmail.com
-          </p>
+      <div class="col-sm-7">
+        <p>Dirección:<br><br>
+          Calle San Juan de la Cruz, s/n <br><br>
+          Pozuelo de Alarcón, Madrid <br><br>
+          Telefono <br><br>
+          (+34) 666 55 44 33 <br><br>
+          Correo electrónico <br><br>
+          ...@gmail.com
+        </p>
 
-        </div>
+      </div>
 
-        <div class="col-sm-5" >
-          <ul class="navbar navbar-expand-sm"id="rrss">
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Twitter.jpg" height="68" width="68"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Instagram.jpg" height="68" width="68"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../Public/Img/Facebook.png" height="48" width="48"></a>
-            </li>
-          </ul>
+      <div class="col-sm-5">
+        <ul class="navbar navbar-expand-sm" id="rrss">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Twitter.jpg" height="68" width="68"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Instagram.jpg" height="68" width="68"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../Public/Img/Facebook.png" height="48" width="48"></a>
+          </li>
+        </ul>
 
-        </div>
+      </div>
     </div>
     <div class="footer-copyright text-center py-3">
       <p>Terminos de venta&nbsp;&nbsp;&nbsp; |

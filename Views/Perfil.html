@@ -26,17 +26,27 @@
 </head>
 
 <body id="bodyPerfil">
-    %%menu%%
-    <div class="back-form">
-        <div class="buttonPerfil">
-            <button type="button" class="btn btn-lg btn-primary active" id="tablaPedidos">Pedidos</button>
-            <button type="button" class="btn btn-secondary btn-lg" id="formularioModificar">Modificar cuenta</button>
-        </div>
+
+  <!-- Header/Menu principal de la página-->
+  %%menu%%
+
+  <!-- Botones para mostrar los pedidos del usuario en una tabla y para desplegar un formulario de modificación, 
+        las modificaciónes son dinámicas, se puede meter cualquier campo y se realizará el cambio pertinente -->
+  <div class="back-form">
+    <div class="buttonPerfil">
+      <button type="button" class="btn btn-lg btn-primary active" id="tablaPedidos">Pedidos</button>
+      <button type="button" class="btn btn-secondary btn-lg" id="formularioModificar">Modificar cuenta</button>
+    </div>
+
+    <!-- Divs para mostrar cada una de las acciones de los botones, tanto la tabla de las facturas como el formulario
+        de las modificaciones -->
     <div id="resalto"></div>
     <div id="resultadoPedidos">%%facturas%%</div>
     <div id="modificarCuenta">%%modificarCuenta%%</div>
-    </div>
- %%footer%%
+  </div>
+
+  <!-- Footer de la página -->
+  %%footer%%
 </body>
 
 </html>

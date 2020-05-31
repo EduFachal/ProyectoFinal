@@ -1,17 +1,22 @@
 var charge = window.onload;
+
+// Funciones para crear eventos asociados a los botones de modificación y borrado del usuario
 window.onload = function () {
 
     var buttonsMod = document.getElementsByClassName("updateButton");
     var buttondsDel = document.getElementsByClassName("deleteButton");
-    
+
     for (let i = 0; i < buttonsMod.length; i++) {
-        buttonsMod[i].addEventListener("click",this.updateUser);
-        buttondsDel[i].addEventListener("click",this.deleteUser);
+        buttonsMod[i].addEventListener("click", this.updateUser);
+        buttondsDel[i].addEventListener("click", this.deleteUser);
     }
 }
 
-function updateUser(e){
-    var xmlhttp = new XMLHttpRequest();
+/* Funcion para modificar el usuario deseado, pasando todos los datos a un PHP (UpdateUser) para su 
+    posterior modificación en la base de datos, recoge los valores en los distintos inputs(String) 
+    y el idUsuario(int).
+    Al realizarse el cambio se mostrará una alerta, dando a enteder que se modificó correctamente */
+function updateUser(e) {
     var arrayInput = document.getElementsByTagName("input");
     var user = e.currentTarget.getAttribute('data-id');
     if (confirm("¿Estas seguro que deseas modificar este usuario?")) {
@@ -30,7 +35,7 @@ function updateUser(e){
             if (this.readyState === 4) {
                 var resp = JSON.parse(this.responseText)
                 if (resp.status) {
-                    window.alert("Modificado")
+                    window.alert("Usuario modificado")
                     console.log(this.responseText);
                 }
             }
@@ -42,12 +47,15 @@ function updateUser(e){
     }
 }
 
+/* Funcion para borrar el usuario deseado, pasando el idUsuario  a un PHP (DeleteUser) para su posterior borrado
+     en la base de datos.
+    Al realizarse el cambio se mostrará una alerta, dando a enteder que se eliminó correctamente */
+
 function deleteUser(e) {
     //console.log(e.currentTarget.getAttribute('data-id'));
     var user = e.currentTarget.getAttribute('data-id');
     const element = e.currentTarget.parentElement.parentElement;
     if (confirm("¿Estas seguro que deseas eliminar este usuario?")) {
-        var data = new FormData();
         var url = "../Api/DeleteUser.php";
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
@@ -55,6 +63,7 @@ function deleteUser(e) {
             if (this.readyState === 4) {
                 var resp = JSON.parse(this.responseText)
                 if (resp.status) {
+                    window.alert("Usuario eliminado")
                     element.remove()
                 }
                 console.log(this.responseText);

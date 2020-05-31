@@ -32,8 +32,8 @@ class Offer{
             if($offersPrint[$i]["precio"]<$limit && $i<3){
                 $htmlOffer.="
                 <li>
-                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."'>
-                   <img src='../Public/Img/Articles/Man/".$offersPrint[$i]['idArticulo'].".jpg'>
+                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."' longdesc='Botones al producto anteriormente descrito' > 
+                   <img src='../Public/Img/Articles/Man/".$offersPrint[$i]['idArticulo'].".jpg' alt='Producto es". $offersPrint[$i]['nombre']."'>
                    <p>".$offersPrint[$i]['nombre']."</p><p>".$offersPrint[$i]['precio']."</p></a>
                 </li>"; 
             }     
@@ -42,7 +42,7 @@ class Offer{
         return $htmlOffer;
     }
 
-    //Funcion para  la ropa de la BBDD
+    //Función para pintar la ropa en Ropa.html, dependiendo del distinto tipo
     function printClothe($offersPrint,$sentence){
         $ruta="";
         $name="";
@@ -65,8 +65,8 @@ class Offer{
         for ($i=0; $i <count($offersPrint) ; $i++) { 
                 $htmlOffer.="
                 <li>
-                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."'>
-                   <img src='../Public/Img/Articles/".$ruta."/".$offersPrint[$i]['idArticulo'].".jpg'>
+                   <a href='../Controllers/Producto.php?idArticulo=".$offersPrint[$i]['idArticulo']."' longdesc='Botones al producto anteriormente descrito'>
+                   <img src='../Public/Img/Articles/".$ruta."/".$offersPrint[$i]['idArticulo'].".jpg' alt='Producto es ". $offersPrint[$i]['nombre']."'>
                    <p>".$offersPrint[$i]['nombre']."</p><p>".$offersPrint[$i]['precio']."</p></a>
                 </li>";
                 if($i==2){
