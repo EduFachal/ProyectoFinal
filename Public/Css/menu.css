@@ -80,7 +80,8 @@ nav{
 .articlesListMenu{
     padding-bottom: 5%;
     width:80%;
-    margin-left:-20%;
+    top:180px;
+    left: 180px;
     list-style: none;
     position: absolute;
     z-index: 10;
