@@ -116,4 +116,18 @@ class Admin extends DBConection{
         $stmt->close();
         return $validar;
     }
+
+    public function getUserExist($user){
+        $con = $this ->conn;
+        $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");
+        $stmt->bind_param("s",$user);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $validate=false;
+        if($myrow = $result->fetch_assoc()) {
+          $validate=true;
+        }
+        $stmt->close();
+        return $validate;  
+    }
 }

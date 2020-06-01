@@ -23,7 +23,7 @@
        if(!$con->query("CREATE TABLE IF NOT EXISTS proyecto.usuarios(
         idUsuario int AUTO_INCREMENT,
         rol int(2),
-        usuario varchar(45),
+        usuario varchar(45) UNIQUE,
         pass varchar(200),
         CONSTRAINT PK_USERS PRIMARY KEY (idUsuario));")){
             die("Fallo en la creacion de la tabla usuarios".$con->error);

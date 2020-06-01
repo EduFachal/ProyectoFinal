@@ -4,6 +4,7 @@ include_once("../Models/Users.php");
 include_once("../Models/Admin.php");
 $data = json_decode( file_get_contents('php://input') );
 header('Content-Type: application/json');
+
 $arrayData =(array) $data;
 $email="";
 if(count($arrayData)>0){
