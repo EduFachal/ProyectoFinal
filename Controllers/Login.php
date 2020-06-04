@@ -1,7 +1,6 @@
 <?php 
 include_once("../Models/PrintHtml.php");
 include_once("../Models/Validate.php");
-//include_once("../Models/DBModel/DBCreation.php");
 
 $printer = new PrintHtml();
 $nameValue="";
@@ -30,9 +29,8 @@ if (isset($_POST['enviar'])) {
 	}
 }
 
-/*Crear vista del footer para pintarlo en Perfil.html
-$footerHtml = $printer->createView("Footer",$var);
-*/
+/* Crear vista del footer para pintarlo en Perfil.html
+$footerHtml = $printer->createView("Footer",$var); */
 $model=[
 	"name" => $nameValue,
 	"pass" => $passValue/*,

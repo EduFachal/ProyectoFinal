@@ -16,6 +16,8 @@ if($validate -> checkConnect()){
     if($_SESSION['rol']==0){
         header("Location: ../Controllers/Admin.php");
     }
+}else{
+    header("Location: ../Controllers/Login.php");
 }
 // Funcion para añadir el menu en la pagina -> Models/Funcion en PrintHtml.php
 $printer = new PrintHtml();

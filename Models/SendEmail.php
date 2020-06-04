@@ -70,10 +70,9 @@ public function sendMailDefault(){
     }
 }
 
-public function sendMailValidateChangePassword($to){
-    
+public function sendMailValidateChangePassword($to,$idPass){
     $mail = new PHPMailer;
-    
+    $to="proyectofinaldawiessjdlc@gmail.com";
     //Tell PHPMailer to use SMTP
     $mail->isSMTP();
     $mail->SMTPAuth = true;
@@ -89,7 +88,7 @@ public function sendMailValidateChangePassword($to){
     $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
     $body = "<p style='font-size:2em'>Muchas gracias por ponerse en contacto para recuperar su contraseña<br />";
     $body .= "Por favor, entre en este link para guardar la nueva<br>Esperemos que este todo de su agrado</p><br><br>";
-    $body .= "<a href='http://localhost/1eva/ProyectoFinal/Controllers/Password.php?newPass='".$idUser.">Link para guardar contraseña nueva</a><br><br>";
+    $body .= "<a href='http://localhost/1eva/ProyectoFinal/Controllers/Password.php?id=".$idPass."'>Link para guardar contraseña nueva</a><br><br>";
     $body .= "Gracias por su confianza, reciba un cordial saludo<br><br>";
     $body .="<img src='../Public/Img/fav-ico_nofondo_2.png'>";
     $mail->Body = $body; // Mensaje a enviar

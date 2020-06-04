@@ -117,6 +117,7 @@ class Admin extends DBConection{
         return $validar;
     }
 
+    // Función para sacar el idUsuario conociendo el usuario
     public function getUserExist($user){
         $con = $this ->conn;
         $stmt = $con ->prepare("SELECT idUsuario FROM usuarios WHERE usuario=?");
@@ -127,6 +128,70 @@ class Admin extends DBConection{
         if($myrow = $result->fetch_assoc()) {
           $validate=true;
         }
+        $stmt->close();
+        return $validate;  
+    }
+
+    // Función para generar un identificador aleatorio de 40 caracteres
+    public function generateRandomString() {
+        $length = 40;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-*/';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    // Función para sacar el idUsuario y la contraseña conociendo el identificador, se usa en cambiar Password
+    public function getUserStrNewPass($id){
+        $con = $this ->conn;
+        $intId= (int) $id;
+        $stmt = $con ->prepare("SELECT idUser,pass FROM passtemp WHERE id=?");
+        $stmt->bind_param("i",$intId);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $arr=[];
+        if($myrow = $result->fetch_assoc()) {
+            $arr=["idUser" => $myrow["idUser"],
+           "pass" => $myrow["pass"]];
+        }
+        $stmt->close();
+        return $arr;  
+    }
+
+    // Función para introducir los datos temporales de idUsuario, id y contraseña, se usa en cambiar Password
+    public function insertUserStrNewPass($id,$idUser,$pass){
+        $con = $this ->conn;
+        $intId= (int) $idUser;
+        $hash=password_hash($pass,PASSWORD_DEFAULT);
+        $stmt = $con->prepare("INSERT INTO passtemp (id,idUser,pass) VALUES (?,?,?)");
+        $stmt->bind_param("sis",$id,$idUser,$hash);
+        $validate=false;
+        if($stmt->execute()){
+            $validate=true;
+        }  
+        $stmt->close();
+        return $validate;  
+    }
+
+    // Función para modificar la pass del idUsuario y despues se borran los datos de la tabla temporal
+    public function updateUserStrNewPass($idUser,$pass){
+        $con = $this ->conn;
+        $intId= (int) $idUser;
+        $stmt = $con->prepare("UPDATE usuarios SET pass=? WHERE idUsuario=?");
+        $stmt->bind_param("si",$pass,$intId);
+        $validate=false;
+        if($stmt->execute()){
+            $validate=true;
+            $stmt->close();
+            $stmt=$con->prepare("DELETE FROM passtemp WHERE idUser=?");
+            $stmt->bind_param("i",$intId);
+            if($stmt->execute()){
+                $validate=true;
+            }
+        }  
         $stmt->close();
         return $validate;  
     }

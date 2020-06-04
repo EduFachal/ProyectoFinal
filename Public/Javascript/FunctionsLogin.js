@@ -30,7 +30,7 @@ function getBackIndex(){
    un email para validar el cambio realizado a la cuenta de email asociada al usuario */
 function validateNewPass(){
     var arrayInput = document.getElementsByTagName("input");
-    if (confirm("¿Estas seguro que desea cambiar la contraseña?")) {
+    if (confirm("¿Estas seguro que desea cambiar la contraseña?") && arrayInput[3].value === arrayInput[4].value) {
         var data = {};
         var url = "../Api/ChangePasswordUser.php";
         for (let i = 0; i < arrayInput.length; i++) {
@@ -49,9 +49,10 @@ function validateNewPass(){
                 console.log(this.responseText);
             }
         });
-    
         xhr.open("POST", url);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(data));
+    }else{
+        window.alert("Compruebe las creedenciales introducidas")
     }
 }

@@ -9,10 +9,12 @@
 .nav-item{
     margin-right: 35%;
 }
+
 nav{
     font-family: 'Oswald';
     font-size: 2rem;
 }
+
 #nav-top{
     margin: 2.5%;
 }
@@ -24,6 +26,7 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #logo{
     background-image: url("../Img/fav-ico_nofondo_2.png");
     width: 64px;
@@ -40,6 +43,7 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #links img{
     width: 94px;
     height: 98px;
@@ -53,6 +57,7 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #linkPerfil{
     width: 84px;
     height: 88px;
@@ -73,10 +78,10 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #findProduct{
     width: 600px;
 }
-
 
 #buttonProduct{
     background-color: rgb(3, 62, 190);
@@ -92,23 +97,25 @@ nav{
     z-index: 10;
     color: black;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5%;
+    border-radius: 15%;
 }
+
 .articlesListMenu img{
     width: 120px;
     height: 110px;
     display: inline-block;
 }
+
 .articlesListMenu h3{
     text-align: center;
 }
+
 .articlesListMenu li{
     width: 120px;
     height: 110px;
     display: inline-block;
     margin: 3%;
 }
-
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,9 +124,11 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #clothesMenu{
     margin-left:45%;  
 }
+
 #clothesMenu a{
     color:rgb(48, 50, 54)
 }
@@ -131,6 +140,7 @@ nav{
                    
 ////////////////////////////////////////////////////////////////////////////////////////////////////                        
 */
+
 #backgroundOpacity {
     overflow: auto;
     width: 100%;
