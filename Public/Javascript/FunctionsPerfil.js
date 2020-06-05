@@ -4,6 +4,10 @@ window.onload = function () {
     document.getElementById("tablaPedidos").addEventListener("click", getFacturas);
     document.getElementById("formularioModificar").addEventListener("click", getFormCuenta);
     document.getElementById("modificar").addEventListener("click", modificarCuentaUsuario);
+    var buttonsBills = document.getElementsByClassName("getBill");
+    for (let i = 0; i < buttonsBills.length; i++) {
+        buttonsBills[i].addEventListener("click", getBillProfile);
+    }
     document.getElementById("resultadoPedidos").style.display = "none";
     document.getElementById("modificarCuenta").style.display = "none";
 }
@@ -57,6 +61,31 @@ function modificarCuentaUsuario() {
         }
     }
     data["idUsuario"] = idUsuario;
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
+}
+
+/* Funcion con Ajax para enviarle los inputs con los datos, en este caso un array que los contenga,
+   para modificar al usuario en el PHP UpdateUser */
+   function getBillProfile(e) {
+    var xmlhttp = new XMLHttpRequest();
+    var arrayInput = document.getElementsByTagName("input");
+    var fact =  e.currentTarget.getAttribute("data-id");
+    var idUsuario = document.getElementById("modificar").getAttribute("data-id");
+    var data = {}
+    var url = "../Api/getBillWord.php";
+    data["idUsuario"] = idUsuario;
+    data["idFactura"] = fact;
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 

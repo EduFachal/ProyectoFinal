@@ -32,7 +32,7 @@ class Users extends DBConection{
         $facturas.="<tr><td>".$arrayFacturas[$i]["idFactura"]."</td>"
             ."<td>".$arrayFacturas[$i]["fecha"]."</td>"
             ."<td><strong>".$arrayFacturas[$i]["precio"]." €</strong></td>
-            .<td><i class='fas fa-file-invoice-dollar' id='imageBill'></i></td></tr>";
+            .<td><i class='fas fa-file-invoice-dollar getBill' id='imageBill' data-id='".$arrayFacturas[$i]["idFactura"]."'></i></td></tr>";
     }
     return $facturas;
   }
