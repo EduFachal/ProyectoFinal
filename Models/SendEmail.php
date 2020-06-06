@@ -1,9 +1,9 @@
 <?php
-include_once('../Models/PHPMailer/src/PHPMailer.php');
-include_once('../Models/PHPMailer/src/Exception.php');
-include_once('../Models/PHPMailer/src/OAuth.php');
-include_once('../Models/PHPMailer/src/SMTP.php');
-use PHPMailer\PHPMailer\PHPMailer;
+include_once('../Api/PHPMailer/src/PHPMailer.php');
+include_once('../Api/PHPMailer/src/Exception.php');
+include_once('../Api/PHPMailer/src/OAuth.php');
+include_once('../Api/PHPMailer/src/SMTP.php');
+use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception;
 
 class EMail{
@@ -86,8 +86,8 @@ public function sendMailValidateChangePassword($to,$idPass){
     
     $mail->IsHTML(true); // El correo se envía como HTML
     $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
-    $body = "<p style='font-size:2em'>Muchas gracias por ponerse en contacto para recuperar su contraseña<br />";
-    $body .= "Por favor, entre en este link para guardar la nueva<br>Esperemos que este todo de su agrado</p><br><br>";
+    $body = "<p style='font-size:1em'>Muchas gracias por ponerse en contacto para recuperar su contraseña<br />";
+    $body .= "Por favor, entre en este link para guardar la nueva</p><br><br><br>";
     $body .= "<a href='http://localhost/1eva/ProyectoFinal/Controllers/Password.php?id=".$idPass."'>Link para guardar contraseña nueva</a><br><br>";
     $body .= "Gracias por su confianza, reciba un cordial saludo<br><br>";
     $body .="<img src='../Public/Img/fav-ico_nofondo_2.png'>";

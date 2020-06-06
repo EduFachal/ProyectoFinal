@@ -89,14 +89,11 @@ class Users extends DBConection{
             $stmt->bind_param("sssi",$dateF,$price,$shop,$idClient);
             if($stmt->execute()){
                 $stmt->close();
-                $intIdFactura= (int) $this->idFactura($user);
+                $intIdFactura= (int) $this->idFactura($user,$dateF,$price);
                 foreach ($data as $key => $value) {
                     // Va introduciendo cada uno de los articulos correspondientes
                     $stmt = $con->prepare("INSERT INTO pedidos (unidades,precioTotal,idFactura_fact,idArticulo_art) VALUES (?,?,?,?)");
-                   // echo("//////".$value["lotProduct"]);
-            //   echo("//////".$value["productPrice"]);
                     $calculatePrice = (int)$value["lotProduct"]*$value["productPrice"];
-                   // echo "///////////".$calculatePrice;
                     $stmt->bind_param("ssii",$value["lotProduct"],$calculatePrice,$intIdFactura,$value["idProducto"]);
                     $stmt->execute();
                     $stmt->close(); 
@@ -134,11 +131,11 @@ class Users extends DBConection{
     }
 
     // Función para sacar el idFactura psandole el idUsuario(String)
-    public function idFactura($userId){
+    public function idFactura($userId,$date,$price){
         $con = $this ->conn;
         $intId= (int) $userId;
-        $stmt = $con ->prepare("SELECT idFactura FROM facturas,datosclientes WHERE facturas.idCliente_datos=datosclientes.idCliente AND idUsuario_user=?");
-        $stmt->bind_param("i",$intId);
+        $stmt = $con ->prepare("SELECT idFactura FROM facturas,datosclientes WHERE facturas.idCliente_datos=datosclientes.idCliente AND idUsuario_user=? AND fecha=? AND precio=?");
+        $stmt->bind_param("iss",$intId,$date,$price);
         $stmt -> execute();
         $result = $stmt->get_result();  
         $value="";
@@ -195,6 +192,7 @@ class Users extends DBConection{
         return $value; 
     }
 
+    
     public function getValuesUser($idUser){
         $con = $this ->conn;
         $intId= (int) $idUser;
@@ -218,6 +216,26 @@ class Users extends DBConection{
         }
         $stmt->close();
         return $value; 
+    }
+
+    public function getProductsBill($billId){
+        $con = $this ->conn;
+        $intId= (int) $billId;
+        $stmt = $con ->prepare("SELECT unidades,precioTotal,nombre FROM pedidos,articulos WHERE pedidos.idArticulo_art=articulos.idArticulo AND idFactura_fact=?");
+        $stmt->bind_param("i",$intId);
+        $stmt -> execute();
+        $result = $stmt->get_result();  
+        $arrayDatos=[];
+        while($myrow = $result->fetch_assoc()) {
+            $articleArray= [];
+            $articleArray["unidades"] = $myrow["unidades"];
+            $articleArray["precioTotal"] = $myrow["precioTotal"];
+            $articleArray["nombre"] = $myrow["nombre"];
+            $arrayDatos[] = $articleArray;
+        }
+        $stmt->free_result();
+        $stmt->close();
+        return $arrayDatos;
     }
 }
 

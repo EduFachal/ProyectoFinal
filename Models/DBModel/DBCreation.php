@@ -1,7 +1,7 @@
 <?php
 
     //Establece la conexion a la base de datos
-   /* $con = new mysqli("localhost","root","","");
+    $con = new mysqli("localhost","root","","");
   
    if($con==true){
 
@@ -110,12 +110,12 @@
 		    $con=null;
 		    $con->close(); 
     }
-*/
+
     //Establece la conexion al usuario tienda2
     $connex=new mysqli("localhost","proyecto","proyecto","proyecto");
 
     if($connex==true){
-      /*  aniadirArticulos($connex);
+        aniadirArticulos($connex);
         $usuarios=array("alexsn","mariasa","danife","miguelgg","teemo");
         $pass=array("a1234","b4789","c6598","d546213","e1546");
         $datos=array("Fulanito","Menganito","11/11/2011","555555555","dasdadas@dsadsad.es","jhgffghfgh","1234","dsadasdads","gfhfghfg");
@@ -125,7 +125,7 @@
             $connex->query("INSERT INTO usuarios (idUsuario, rol,usuario,pass) VALUES ($i,1,'$usuarios[$i]','$hash')");
             $connex->query("INSERT INTO datosclientes (nombre,apellidos,fechaNacimiento,telefono,email,direccion,codigoPostal,localidad,provincia,idUsuario_user) VALUES 
                     ($datos[0],$datos[1],$datos[2],$datos[3],$datos[4],$datos[5],$datos[6],$datos[7],$datos[8],$i)");
-        }*/
+        }
         
         //Para admin
         $hash=password_hash("admin",PASSWORD_DEFAULT);
@@ -139,7 +139,7 @@
 
   
 
-/*
+
     function aniadirArticulos($connex){
         $nombresArticulos=array(
             'camiseta vans amarilla hombre','camiseta vans morada hombre','camiseta nike negra hombre','pantalon adidas negro hombre','pantalon puma negro hombre','pantalon fila azul hombre','zapatillas nike negro hombre','zapatillas nike rojo hombre','zapatillas adidas rojo hombre',
@@ -159,4 +159,3 @@
 
         $connex->query($sql);
     }
-*/

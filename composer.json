@@ -1,0 +1,12 @@
+{
+    "name": "abu/proyecto-final",
+    "authors": [
+        {
+            "name": "Eduardo Fachal",
+            "email": "edu.fachal@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "^0.17.0"
+    }
+}
