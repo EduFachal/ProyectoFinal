@@ -56,7 +56,7 @@ class Bill{
         );
         $objWriter =\PhpOffice\PhpWord\IOFactory::createWriter($document,"Word2007",true);
         $filename=$arrayDataUsers['nombre']." ".$arrayDataUsers['apellidos']." - Factura EMOP.doc";
-        $objWriter->save($filename);
+        $objWriter->save("../../../../../../Facturas/".$filename);
 
     }
 }
