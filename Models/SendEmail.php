@@ -50,13 +50,13 @@ public function sendMailDefault(){
     $mail->From = "proyectofinaldawiessjdlc@gmail.com"; // Desde donde enviamos (Para mostrar)
     $mail->FromName = "EMOP Tienda de Deportes";
     $mail->AddAddress("proyectofinaldawiessjdlc@gmail.com"); // Esta es la dirección a donde enviamos
-    $mail->AddEmbeddedImage("../Public/Img/fav-ico_nofondo_2.png",'iconPage','Icon');
+    $mail->AddEmbeddedImage("../Public/Img/fav-ico_nofondo_2.png",'iconPage2','Icon2');
 
     $mail->IsHTML(true); // El correo se envía como HTML
     $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
     $body = "Te queremos dar la bienvenida a nuestra tienda<br />";
     $body .= "Disfruta de nuestras ofertas!!<br><br><br>";
-    $body .="<img src='cid:iconPage' alt='Icon page'>";
+    $body .="<img src='cid:iconPage2' alt='Icon page'>";
     $mail->Body = $body; // Mensaje a enviar
     $mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // Texto sin html
     $validate = $mail->Send(); // Envía el correo.
