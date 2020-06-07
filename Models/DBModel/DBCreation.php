@@ -124,7 +124,7 @@
             $hash=password_hash($pass[$i],PASSWORD_DEFAULT);
             $connex->query("INSERT INTO usuarios (idUsuario, rol,usuario,pass) VALUES ($i,1,'$usuarios[$i]','$hash')");
             $connex->query("INSERT INTO datosclientes (nombre,apellidos,fechaNacimiento,telefono,email,direccion,codigoPostal,localidad,provincia,idUsuario_user) VALUES 
-                    ($datos[0],$datos[1],$datos[2],$datos[3],$datos[4],$datos[5],$datos[6],$datos[7],$datos[8],$i)");
+                    ('$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','$datos[6]','$datos[7]','$datos[8]',$i)");
         }
         
         //Para admin
