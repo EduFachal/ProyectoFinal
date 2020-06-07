@@ -8,9 +8,7 @@ $user = new Users();
 $arrayDataUsers = $user -> getValuesUser($arrayData["idUsuario"]);
 
 $arrayDataBill = $user -> getProductsBill($arrayData["idFactura"]);
-print_r($arrayData);
-print_r($arrayDataUsers);
 $objBill = new Bill();
 
-$pr = $objBill->getBill($arrayData["idFactura"],$arrayDataUsers,$arrayDataBill);
-echo json_decode($pr);
+$fileName = $objBill->getBill($arrayData["idFactura"],$arrayDataUsers,$arrayDataBill);
+echo $fileName;

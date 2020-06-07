@@ -92,6 +92,9 @@ function modificarCuentaUsuario() {
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             console.log(this.responseText);
+            if(this.responseText != ""){
+                window.location.href="../Public/Bills/"+this.responseText;
+            }
         }
     });
 
