@@ -45,6 +45,7 @@ function validateNewPass(){
                 var resp = JSON.parse(this.responseText)
                 if (resp.status) {
                     window.alert("¡Hecho!")
+                    window.location.href="../Controllers/Index.php";
                 }
                 console.log(this.responseText);
             }

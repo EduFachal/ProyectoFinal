@@ -7,6 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 class EMail{
+
     public function sendMail($from,$to,$subejct,$body){
     
     $mail = new PHPMailer;
@@ -57,7 +58,7 @@ public function sendMailDefault(){
     $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
     $body = "Te queremos dar la bienvenida a nuestra tienda<br />";
     $body .= "Disfruta de nuestras ofertas!!<br><br><br>";
-    $body .="<img src='../Public/Img/fav-ico_nofondo_2.png'>";
+    $body .="<img src=".$this->srcPipe." alt='Icon page'>";
     $mail->Body = $body; // Mensaje a enviar
     $mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // Texto sin html
     $validate = $mail->Send(); // Envía el correo.
@@ -70,6 +71,8 @@ public function sendMailDefault(){
     }
 }
 
+
+// Función que envia email para verificar la nueva contraseña del usuario
 public function sendMailValidateChangePassword($to,$idPass){
     $mail = new PHPMailer;
     $to="proyectofinaldawiessjdlc@gmail.com";
@@ -83,14 +86,16 @@ public function sendMailValidateChangePassword($to,$idPass){
     $mail->From = "proyectofinaldawiessjdlc@gmail.com"; // Desde donde enviamos (Para mostrar)
     $mail->FromName = "EMOP Tienda de Deportes";
     $mail->AddAddress($to); // Esta es la dirección a donde enviamos
-    
+
+    $mail->AddEmbeddedImage("../Public/Img/fav-ico_nofondo_2.png",'iconPage','Icon');
+
     $mail->IsHTML(true); // El correo se envía como HTML
     $mail->Subject = "EMOP Tienda de Deportes"; // Este es el titulo del email.
     $body = "<p style='font-size:1em'>Muchas gracias por ponerse en contacto para recuperar su contraseña<br />";
     $body .= "Por favor, entre en este link para guardar la nueva</p><br><br><br>";
     $body .= "<a href='http://localhost/1eva/ProyectoFinal/Controllers/Password.php?id=".$idPass."'>Link para guardar contraseña nueva</a><br><br>";
     $body .= "Gracias por su confianza, reciba un cordial saludo<br><br>";
-    $body .="<img src='../Public/Img/fav-ico_nofondo_2.png'>";
+    $body .="<img src='cid:iconPage' alt='Icon page'>";
     $mail->Body = $body; // Mensaje a enviar
     $mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // Texto sin html
     $validate = $mail->Send(); // Envía el correo.

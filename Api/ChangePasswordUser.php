@@ -15,6 +15,7 @@ header('Content-Type: application/json');
 
 $arrayData =(array) $data;
 $email="";
+$resp=["status" => false];
 if(count($arrayData)>0){
     $userEmail = new Users();
     $email = $userEmail-> getEmail($arrayData["usuario"]);
@@ -27,6 +28,7 @@ if($email!="" && $arrayData["pass"]==$arrayData["pass-rep"]){
     if($userObj->insertUserStrNewPass($idStr,$idUser,$arrayData["pass"])){
         $sendMail = new EMail();
         $sendMail-> sendMailValidateChangePassword($email, $idStr); 
+        $resp["status"]=true;
     }
 }
 
