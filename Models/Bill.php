@@ -28,15 +28,21 @@ class Bill{
         $table =$section->addTable();
         $table->addRow();
         $table->addCell(4000)->addText("Nombre producto");
-        $table->addCell(4000)->addText("Numero unidades producto");
-        $table->addCell(4000)->addText("Precio producto");
-
+        $table->addCell(4000)->addText("Unidades");
+        $table->addCell(4000)->addText("Precio");
+        $total = 0;
         for ($i=0; $i < count($arrayDataBill); $i++) { 
             $table->addRow();
             $table->addCell(4000)->addText($arrayDataBill[$i]["nombre"]);
             $table->addCell(4000)->addText($arrayDataBill[$i]["unidades"]);
             $table->addCell(4000)->addText($arrayDataBill[$i]["precioTotal"]." €");
+            $total = $total + $arrayDataBill[$i]["precioTotal"];
         }   
+        $table->addRow();
+        $table->addCell(4000)->addText("===============================================================");
+        $table->addRow();
+        $table->addCell(6000)->addText("Precio total");
+        $table->addCell(6000)->addText($total." €");
 
         $footer = $section->createFooter();
         $footer-> addText(
