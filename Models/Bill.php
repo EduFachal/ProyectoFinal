@@ -35,7 +35,7 @@ class Bill{
             $table->addRow();
             $table->addCell(4000)->addText($arrayDataBill[$i]["nombre"]);
             $table->addCell(4000)->addText($arrayDataBill[$i]["unidades"]);
-            $table->addCell(4000)->addText($arrayDataBill[$i]["precioTotal"]." €");
+            $table->addCell(4000)->addText($arrayDataBill[$i]["precioTotal"]);
             $total = $total + $arrayDataBill[$i]["precioTotal"];
         }   
         $table->addRow();
@@ -54,7 +54,7 @@ class Bill{
             "margintop"=>800)
         );
         $objWriter =\PhpOffice\PhpWord\IOFactory::createWriter($document,"Word2007");
-        $filename=$arrayDataUsers['nombre']." ".$arrayDataUsers['apellidos']." - Factura".$idFactura."EMOP.doc";
+        $filename=$arrayDataUsers['nombre']." ".$arrayDataUsers['apellidos']." - Factura EMOP.doc";
         $objWriter->save("../Public/Bills/".$filename);
         return $filename;
     }
