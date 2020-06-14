@@ -66,7 +66,9 @@ function modificarCuentaUsuario() {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
+            window.alert("¡Exito, cambio realizado!")
             console.log(this.responseText);
+            window.location.href="../Controllers/Perfil.php";
         }
     });
 

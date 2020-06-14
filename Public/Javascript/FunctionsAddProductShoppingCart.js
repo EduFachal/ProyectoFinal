@@ -12,7 +12,8 @@ function addProductSession() {
     var idProduct = document.getElementById("buttonAddProduct").getAttribute("data-id");
     var price = document.getElementById("valueProduct").innerText;
     price = price.substr(0,price.length-2)
-    var data = {}
+    if(lotProduct>0){
+         var data = {}
     var url = "../Api/AddShoppingCart.php";
     data["idProduct"]=idProduct;
     data["lotProduct"]=lotProduct;
@@ -32,6 +33,10 @@ function addProductSession() {
 
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(data)); 
+    }else{
+        window.alert("Escoja cantidad de producto");
+    }
+  
 }
 
